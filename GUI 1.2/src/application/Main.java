@@ -14,7 +14,7 @@ public class Main extends Application {
 		try {
 			Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("help.fxml"));
 			//BorderPane root = new BorderPane();
-			Scene scene = new Scene(root,400,400);
+			Scene scene = new Scene(root,725,600);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
 			primaryStage.show();
@@ -25,5 +25,12 @@ public class Main extends Application {
 	
 	public static void main(String[] args) {
 		launch(args);
+		Cattle cattle = new Cattle(); 
+		ExponentialPopulationGrowth growth = new ExponentialPopulationGrowth(cattle);
+		growth.updateModel();
+		growth.updateModel();
+		growth.updateModel();
+		growth.updateModel();
+		
 	}
 }
