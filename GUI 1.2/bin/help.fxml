@@ -6,7 +6,6 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.ScrollBar?>
 <?import javafx.scene.control.SplitPane?>
@@ -14,11 +13,15 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="592.0" prefWidth="769.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <MenuBar>
         <menus>
+            <Menu mnemonicParsing="false" text="Model">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Action 1" />
+              </items>
+            </Menu>
           <Menu mnemonicParsing="false" text="File">
             <items>
               <MenuItem mnemonicParsing="false" text="Close" />
@@ -51,27 +54,20 @@
                   <TextField layoutX="39.0" layoutY="230.0" />
                   <Label layoutX="92.0" layoutY="266.0" text="Years" textAlignment="CENTER" />
                   <TextField layoutX="39.0" layoutY="283.0" />
-                  <Label contentDisplay="CENTER" layoutX="59.0" layoutY="327.0" text="Mathematical model" textAlignment="CENTER" />
-                  <MenuButton layoutX="50.0" layoutY="353.0" mnemonicParsing="false" text="choose you model">
-                    <items>
-                      <MenuItem mnemonicParsing="false" text="Exponential" />
-                      <MenuItem mnemonicParsing="false" text="the other one" />
-                        <MenuItem mnemonicParsing="false" text="Unspecified Action" />
-                    </items>
-                  </MenuButton>
                   <Button layoutX="74.0" layoutY="526.0" mnemonicParsing="false" text="Calculate" />
                </children>
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                <children>
-                  <StackedAreaChart layoutX="8.0" layoutY="24.0">
+                  <StackedAreaChart fx:id="chartId" layoutX="8.0" layoutY="24.0">
                     <xAxis>
-                      <NumberAxis side="BOTTOM" />
+                      <NumberAxis label="Time" side="BOTTOM" fx:id="xAxis" />
                     </xAxis>
                     <yAxis>
-                      <NumberAxis side="LEFT" />
+                      <NumberAxis fx:id="yAxis" label="Population size" side="LEFT" upperBound="1000.0" />
                     </yAxis>
                   </StackedAreaChart>
+                  <ScrollBar layoutX="514.0" orientation="VERTICAL" prefHeight="565.0" prefWidth="14.0" />
                </children>
             </AnchorPane>
         </items>
