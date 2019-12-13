@@ -11,10 +11,10 @@ public class ExponentialPopulationGrowth extends Model{
 	//parameters used by the model
 	private static int currentPopSize;
 	private static int timelimit=10;
-	private static int time=2;
+	private static int time=1;
 	private static final int  e=3;
 	
-	//method which calculates the growth until the time reaches timelimit
+	//method which calculates the growth until it reaches timelimit
 	public void updateModel() {
 		while (time!=timelimit) {
 			currentPopSize=initialPopSize*e^(rate*time);

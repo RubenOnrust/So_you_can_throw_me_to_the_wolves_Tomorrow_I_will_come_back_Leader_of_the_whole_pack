@@ -17,12 +17,12 @@
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                <children>
-                  <StackedAreaChart layoutX="7.0">
+                  <StackedAreaChart fx:id="chart" title="Population Sizes" layoutX="7.0" AnchorPane.leftAnchor="7.0">
                     <xAxis>
-                      <NumberAxis side="BOTTOM" />
+                      <NumberAxis fx:id="xAxis"  side="BOTTOM" />
                     </xAxis>
                     <yAxis>
-                      <NumberAxis side="LEFT" />
+                      <NumberAxis fx:id="yAxis" side="LEFT" />
                     </yAxis>
                   </StackedAreaChart>
                </children></AnchorPane>
