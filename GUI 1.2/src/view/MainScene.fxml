@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.chart.StackedAreaChart?>
 <?import javafx.scene.control.Button?>
@@ -13,7 +14,10 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="592.0" prefWidth="769.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+
+
+
+<VBox fx:controller="src/application/Controller.java" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="592.0" prefWidth="769.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <MenuBar>
         <menus>
@@ -54,7 +58,7 @@
                   <TextField layoutX="39.0" layoutY="230.0" />
                   <Label layoutX="92.0" layoutY="266.0" text="Years" textAlignment="CENTER" />
                   <TextField layoutX="39.0" layoutY="283.0" />
-                  <Button layoutX="74.0" layoutY="526.0" mnemonicParsing="false" text="Calculate" />
+                  <Button onAction="#calculate" fx:id="buttonCalculate" layoutX="74.0" layoutY="526.0" mnemonicParsing="false" text="Calculate" />
                </children>
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
