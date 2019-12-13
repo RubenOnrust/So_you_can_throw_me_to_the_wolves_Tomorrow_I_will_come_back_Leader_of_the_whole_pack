@@ -1,4 +1,6 @@
-package application;
+package models;
+
+import livingOrganisms.Animal;
 
 public class ExponentialPopulationGrowth extends Model{
 	//parameters passed from an animal

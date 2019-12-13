@@ -1,4 +1,4 @@
-package application;
+package livingOrganisms;
 
 
 public abstract class Animal {

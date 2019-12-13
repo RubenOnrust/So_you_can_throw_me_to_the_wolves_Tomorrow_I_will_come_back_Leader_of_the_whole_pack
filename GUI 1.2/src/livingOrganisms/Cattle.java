@@ -1,4 +1,4 @@
-package application;
+package livingOrganisms;
 
 public class Cattle extends Animal{
 	//paramers exact numbers
