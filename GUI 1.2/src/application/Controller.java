@@ -15,7 +15,7 @@ public class Controller implements Initializable{
 	private Button buttonCalculate;
 	
 	public void calculate(ActionEvent event) {
-		System.out.println("juhju");
+		System.out.println("work bitch");
 	
 	
 	}
