@@ -21,7 +21,10 @@ public class Controller implements Initializable{
 	ExponentialPopulationGrowth growth=new ExponentialPopulationGrowth(cattle);
 	//button calculate
 	@FXML private Button buttonCalculate;
+	
+	//stckaed chart
 	@FXML private StackedAreaChart<Number,Number> chart;
+	//adding data into the chart, 
 	public void calculate(ActionEvent event) {
 		System.out.println("work bitch");
 		growth.updateModel();
@@ -33,10 +36,10 @@ public class Controller implements Initializable{
 		seriesApril.getData().add(new XYChart.Data<Number,Number>(5,50));
 		
 		XYChart.Series<Number,Number> series2= new XYChart.Series<Number,Number>();
-		series2.getData().add(new XYChart.Data<Number,Number>(2,20));
-		series2.getData().add(new XYChart.Data<Number,Number>(3,30));
-		series2.getData().add(new XYChart.Data<Number,Number>(4,40));
-		series2.getData().add(new XYChart.Data<Number,Number>(5,50));
+		series2.getData().add(new XYChart.Data<Number,Number>(1,20));
+		series2.getData().add(new XYChart.Data<Number,Number>(2,30));
+		series2.getData().add(new XYChart.Data<Number,Number>(3,40));
+		series2.getData().add(new XYChart.Data<Number,Number>(4,50));
 		series2.getData().add(new XYChart.Data<Number,Number>(5,50));
 		
 		chart.getData().add(seriesApril);

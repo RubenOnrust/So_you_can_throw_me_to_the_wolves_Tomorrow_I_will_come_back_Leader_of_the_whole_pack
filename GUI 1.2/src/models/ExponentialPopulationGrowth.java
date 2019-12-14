@@ -2,6 +2,7 @@ package models;
 
 import livingOrganisms.Animal;
 
+
 public class ExponentialPopulationGrowth extends Model{
 	//parameters passed from an animal
 	private Animal animal;
@@ -11,8 +12,9 @@ public class ExponentialPopulationGrowth extends Model{
 	//parameters used by the model
 	private static int currentPopSize;
 	private static int timelimit=10;
-	private static int time=1;
+	private static int time=0;
 	private static final int  e=3;
+	
 	
 	//method which calculates the growth until it reaches timelimit
 	public void updateModel() {
