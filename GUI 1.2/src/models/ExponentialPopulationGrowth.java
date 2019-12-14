@@ -8,25 +8,27 @@ import javafx.scene.chart.*;
 public class ExponentialPopulationGrowth extends Model{
 	//parameters passed from an animal
 	private Animal animal;
-	private static int initialPopSize;
-	private static int rate;
+	private int initialPopSize;
+	private int rate;
 	
 	//parameters used by the model
-	private static int currentPopSize;
-	private static int timelimit=10;
-	private static int time=0;
 	private static final int  e=3;
+	//this give the chart the values
 	XYChart.Series<Number,Number> expPopGrowthSeries= new XYChart.Series<Number,Number>();
 	
 	
 	//method which calculates the growth until it reaches timelimit
 	public void updateModel() {
+		int timelimit=10;
+		int time=0;
+		int currentPopSize;
+		int initialPopSizeM=initialPopSize;
 		while (time!=timelimit) {
-			currentPopSize=initialPopSize*e^(rate*time);
+			currentPopSize=initialPopSizeM*e^(rate*time);
 			expPopGrowthSeries.getData().add(new XYChart.Data<Number,Number>(time,currentPopSize));
 			time++;
-			initialPopSize=currentPopSize;
-			System.out.println(initialPopSize);
+			System.out.println(initialPopSizeM);
+			initialPopSizeM=currentPopSize;
 			System.out.println("Currensize:"+currentPopSize);
 	}
 	}
@@ -38,13 +40,6 @@ public class ExponentialPopulationGrowth extends Model{
 		// TODO Auto-generated constructor stub
 	}
 
-	public static int getCurrentPopSize() {
-		return currentPopSize;
-	}
-
-	public static void setCurrentPopSize(int currentPopSize) {
-		ExponentialPopulationGrowth.currentPopSize = currentPopSize;
-	}
 
 	public XYChart.Series<Number, Number> getExpPopGrowthSeries() {
 		return expPopGrowthSeries;
@@ -62,36 +57,26 @@ public class ExponentialPopulationGrowth extends Model{
 		this.animal = animal;
 	}
 
-	public static int getInitialPopSize() {
+	public int getInitialPopSize() {
 		return initialPopSize;
 	}
 
-	public static void setInitialPopSize(int initialPopSize) {
-		ExponentialPopulationGrowth.initialPopSize = initialPopSize;
-	}
+	
 
-	public static int getRate() {
+	public int getRate() {
 		return rate;
 	}
 
-	public static void setRate(int rate) {
-		ExponentialPopulationGrowth.rate = rate;
+	
+
+	
+
+	public void setInitialPopSize(int initialPopSize) {
+		this.initialPopSize = initialPopSize;
 	}
 
-	public static int getTimelimit() {
-		return timelimit;
-	}
-
-	public static void setTimelimit(int timelimit) {
-		ExponentialPopulationGrowth.timelimit = timelimit;
-	}
-
-	public static int getTime() {
-		return time;
-	}
-
-	public static void setTime(int time) {
-		ExponentialPopulationGrowth.time = time;
+	public void setRate(int rate) {
+		this.rate = rate;
 	}
 
 	public static int getE() {
