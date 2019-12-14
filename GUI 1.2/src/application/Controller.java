@@ -28,12 +28,8 @@ public class Controller implements Initializable{
 	public void calculate(ActionEvent event) {
 		System.out.println("work bitch");
 		growth.updateModel();
-		XYChart.Series<Number,Number> seriesApril= new XYChart.Series<Number,Number>();
-		seriesApril.getData().add(new XYChart.Data<Number,Number>(1,10));
-		seriesApril.getData().add(new XYChart.Data<Number,Number>(2,20));
-		seriesApril.getData().add(new XYChart.Data<Number,Number>(3,30));
-		seriesApril.getData().add(new XYChart.Data<Number,Number>(4,40));
-		seriesApril.getData().add(new XYChart.Data<Number,Number>(5,50));
+		XYChart.Series<Number,Number> controllerSeries= new XYChart.Series<Number,Number>();
+		controllerSeries=growth.getExpPopGrowthSeries();
 		
 		XYChart.Series<Number,Number> series2= new XYChart.Series<Number,Number>();
 		series2.getData().add(new XYChart.Data<Number,Number>(1,20));
@@ -42,7 +38,7 @@ public class Controller implements Initializable{
 		series2.getData().add(new XYChart.Data<Number,Number>(4,50));
 		series2.getData().add(new XYChart.Data<Number,Number>(5,50));
 		
-		chart.getData().add(seriesApril);
+		chart.getData().add(controllerSeries);
 		chart.getData().add(series2);
 	}
 
