@@ -11,39 +11,40 @@ import javafx.scene.chart.StackedAreaChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
 import livingOrganisms.Cattle;
+import livingOrganisms.Horse;
 import models.ExponentialPopulationGrowth;
 
 
 
 
 public class Controller implements Initializable{
-	Cattle cattle=new Cattle();
-	ExponentialPopulationGrowth growth=new ExponentialPopulationGrowth(cattle);
+	
 	//button calculate
 	@FXML private Button buttonCalculate;
 	
-	//stckaed chart
+	//stacked chart
 	@FXML private StackedAreaChart<Number,Number> chart;
 	//adding data into the chart, 
 	public void calculate(ActionEvent event) {
-		System.out.println("work bitch");
-		growth.updateModel();
-		XYChart.Series<Number,Number> seriesApril= new XYChart.Series<Number,Number>();
-		seriesApril.getData().add(new XYChart.Data<Number,Number>(1,10));
-		seriesApril.getData().add(new XYChart.Data<Number,Number>(2,20));
-		seriesApril.getData().add(new XYChart.Data<Number,Number>(3,30));
-		seriesApril.getData().add(new XYChart.Data<Number,Number>(4,40));
-		seriesApril.getData().add(new XYChart.Data<Number,Number>(5,50));
+		//instances
+		Cattle cattle=new Cattle();
+		ExponentialPopulationGrowth growthC=new ExponentialPopulationGrowth(cattle);
+		Horse horse=new Horse();
+		ExponentialPopulationGrowth growthH=new ExponentialPopulationGrowth(horse);
 		
-		XYChart.Series<Number,Number> series2= new XYChart.Series<Number,Number>();
-		series2.getData().add(new XYChart.Data<Number,Number>(1,20));
-		series2.getData().add(new XYChart.Data<Number,Number>(2,30));
-		series2.getData().add(new XYChart.Data<Number,Number>(3,40));
-		series2.getData().add(new XYChart.Data<Number,Number>(4,50));
-		series2.getData().add(new XYChart.Data<Number,Number>(5,50));
+		//model calculates data and puts it into a series, for some reason it calculates with the same numbers
+		//which are the the second call of constructor
+		growthC.updateModel();
+		XYChart.Series<Number,Number> cattleSeries= new XYChart.Series<Number,Number>();
+		cattleSeries=growthC.getExpPopGrowthSeries();
+		growthH.updateModel();
+		XYChart.Series<Number,Number> horseSeries= new XYChart.Series<Number,Number>();
+		horseSeries=growthH.getExpPopGrowthSeries();
 		
-		chart.getData().add(seriesApril);
-		chart.getData().add(series2);
+		
+		//draws data into the chart
+		chart.getData().add(cattleSeries);
+		chart.getData().add(horseSeries);
 	}
 
 	//chart 
