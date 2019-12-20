@@ -2,7 +2,7 @@ package livingOrganisms;
 
 public class Wolve {
 	private int populationSize;
-	public static double hCattle;
+	private static double hCattle;
 	private static double hHorse;
 	private static double hDeer;
 	

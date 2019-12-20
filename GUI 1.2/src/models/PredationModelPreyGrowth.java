@@ -5,13 +5,13 @@ public class PredationModelPreyGrowth extends Model {
 	// parameters for the model
 	private int victem;
 	private int predator;
-	private double growthRateVictems;
+	private IntrinsicRateOfIncrease growthRateVictems;
 	private ConstantK constantK;
 	private ConstantD constantD;
 	private int populationRise;
 	
 	// The constructer to make an object what is going to be used to calculate population growth
-	public PredationModelPreyGrowth(int victem, int predator, double growthRateVictems, ConstantK constantK, ConstantD constantD) {
+	public PredationModelPreyGrowth(int victem, int predator, IntrinsicRateOfIncrease growthRateVictems, ConstantK constantK, ConstantD constantD) {
 		super();
 		this.victem = victem;
 		this.predator = predator;
@@ -37,10 +37,10 @@ public class PredationModelPreyGrowth extends Model {
 	public void setPredator(int predator) {
 		this.predator = predator;
 	}
-	public double getGrowthRateVictems() {
+	public IntrinsicRateOfIncrease getGrowthRateVictems() {
 		return growthRateVictems;
 	}
-	public void setGrowthRateVictems(double growthRateVictems) {
+	public void setGrowthRateVictems(IntrinsicRateOfIncrease growthRateVictems) {
 		this.growthRateVictems = growthRateVictems;
 	}
 	public ConstantK getConstantK() {
@@ -59,14 +59,14 @@ public class PredationModelPreyGrowth extends Model {
 	@Override
 	public String toString() {
 		return "PredationModelPreyGrowth [victem=" + victem + ", predator=" + predator + ", growthRateVictems="
-				+ growthRateVictems + ", constantK=" + constantK.getConstantK() + ", constantD=" + constantD.getConstantD() + ", populationRise="
+				+ growthRateVictems.getR() + ", constantK=" + constantK.getConstantK() + ", constantD=" + constantD.getConstantD() + ", populationRise="
 				+ populationRise + "]";
 	}
 	// the method to calculate the population growth
 	public void calculatingFormula() {
 		int V = this.victem;
 		int P = this.predator;
-		double r = this.growthRateVictems;
+		double r = this.growthRateVictems.getR();
 		double k = this.constantK.getConstantK();
 		double D = this.constantD.getConstantD();
 		
@@ -77,9 +77,10 @@ public class PredationModelPreyGrowth extends Model {
 		this.populationRise = (int) Math.round(victemPopulationGrowth);
 	}
     public static void main(String[] args) {
+    	IntrinsicRateOfIncrease r = new IntrinsicRateOfIncrease(0.1);
     	ConstantK k = new ConstantK(6);
     	ConstantD d = new ConstantD(2);
-        PredationModelPreyGrowth model = new PredationModelPreyGrowth(100, 2, 0.1, k, d);
+        PredationModelPreyGrowth model = new PredationModelPreyGrowth(100, 2, r, k, d);
         model.calculatingFormula();
         System.out.println(model);
     }

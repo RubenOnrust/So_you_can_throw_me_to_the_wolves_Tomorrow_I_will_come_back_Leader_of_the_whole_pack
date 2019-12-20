@@ -4,7 +4,7 @@ public class Horse extends Animal{
 	//paramers exact numbers
 		private static int initialPopulationSize=50;
 		private static int r=3;
-		
+		private static double lambda;
 		
 		
 		public  int getInitialPopulationSize() {
@@ -19,7 +19,12 @@ public class Horse extends Animal{
 		public void setR(int r) {
 			Horse.r = r;
 		}
-		
+		public static double getLambda() {
+			return lambda;
+		}
+		public static void setLambda(double lambda) {
+			Horse.lambda = lambda;
+		}
 		
 		public Horse() {
 			
