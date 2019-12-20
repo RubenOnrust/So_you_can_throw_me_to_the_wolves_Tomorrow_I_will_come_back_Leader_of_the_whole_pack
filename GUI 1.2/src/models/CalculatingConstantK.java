@@ -20,6 +20,7 @@ public class CalculatingConstantK {
 	public String toString() {
 		return "CalculatingConstantK [constantK=" + constantK + "]";
 	}
+	// calculates the constant K
 	public void calculateK() {
 		float resultOfCalculation = 1/Cattle.getH();
 		this.constantK = resultOfCalculation;

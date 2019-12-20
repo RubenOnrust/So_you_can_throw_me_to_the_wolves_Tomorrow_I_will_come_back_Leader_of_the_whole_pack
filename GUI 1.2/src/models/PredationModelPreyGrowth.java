@@ -2,6 +2,7 @@
 package models;
 
 public class PredationModelPreyGrowth extends Model {
+	// parameters for the model
 	private int victem;
 	private int predator;
 	private float growthRateVictems;
@@ -9,6 +10,7 @@ public class PredationModelPreyGrowth extends Model {
 	private float constantD;
 	private int populationRise;
 	
+	// The constructer to make an object what is going to be used to calculate population growth
 	public PredationModelPreyGrowth(int victem, int predator, float growthRateVictems, float constantK, float constantD,
 			int populationRise) {
 		super();
@@ -17,9 +19,7 @@ public class PredationModelPreyGrowth extends Model {
 		this.growthRateVictems = growthRateVictems;
 		this.constantK = constantK;
 		this.constantD = constantD;
-		this.populationRise = populationRise;
-		
-	
+		this.populationRise = populationRise;		
 	}
 	public int getPopulationRise() {
 		return populationRise;
@@ -62,12 +62,13 @@ public class PredationModelPreyGrowth extends Model {
 		return "PredationModelPreyGrowth [victem=" + victem + ", predator=" + predator + ", growthRateVictems="
 				+ growthRateVictems + ", constantK=" + constantK + ", constantD=" + constantD + "]";
 	}
-	public void calculatingFormula(int victem, int predator, float growthRateVictems, float constantK, float constantD) {
-		int V = victem;
-		int P = predator;
-		float r = growthRateVictems;
-		float k = constantK;
-		float D = constantD;
+	// the method to calculate the population growth
+	public void calculatingFormula() {
+		int V = this.victem;
+		int P = this.predator;
+		float r = this.growthRateVictems;
+		float k = this.constantK;
+		float D = this.constantD;
 		
 		float victemPopulationGrowth = k*V;
 		victemPopulationGrowth = victemPopulationGrowth/(V+D);
