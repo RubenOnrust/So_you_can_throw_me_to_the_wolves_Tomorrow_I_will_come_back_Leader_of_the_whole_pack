@@ -1,14 +1,14 @@
 package models;
 
-public class CalculatingConstantD {
-	private float constantD;
+public class ConstantD {
+	private double constantD;
 
-	public CalculatingConstantD(float constantD) {
+	public ConstantD(double constantD) {
 		super();
 		this.constantD = constantD;
 	}
 
-	public float getConstantK() {
+	public double getConstantD() {
 		return constantD;
 	}
 
@@ -22,7 +22,7 @@ public class CalculatingConstantD {
 	}
 	// calculates constant d
 	public void calculateD() {
-		float resultOfCalculation = 1/(Alpha.getCattleAlpha*Cattle.getH());
+		double resultOfCalculation = 1/(Alpha.getCattleAlpha()*Wolve.getH());
 		this.constantD = resultOfCalculation;
 		
 	}

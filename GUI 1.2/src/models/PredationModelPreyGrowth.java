@@ -5,21 +5,19 @@ public class PredationModelPreyGrowth extends Model {
 	// parameters for the model
 	private int victem;
 	private int predator;
-	private float growthRateVictems;
-	private float constantK;
-	private float constantD;
+	private double growthRateVictems;
+	private ConstantK constantK;
+	private ConstantD constantD;
 	private int populationRise;
 	
 	// The constructer to make an object what is going to be used to calculate population growth
-	public PredationModelPreyGrowth(int victem, int predator, float growthRateVictems, float constantK, float constantD,
-			int populationRise) {
+	public PredationModelPreyGrowth(int victem, int predator, double growthRateVictems, ConstantK constantK, ConstantD constantD) {
 		super();
 		this.victem = victem;
 		this.predator = predator;
 		this.growthRateVictems = growthRateVictems;
 		this.constantK = constantK;
-		this.constantD = constantD;
-		this.populationRise = populationRise;		
+		this.constantD = constantD;		
 	}
 	public int getPopulationRise() {
 		return populationRise;
@@ -39,44 +37,52 @@ public class PredationModelPreyGrowth extends Model {
 	public void setPredator(int predator) {
 		this.predator = predator;
 	}
-	public float getGrowthRateVictems() {
+	public double getGrowthRateVictems() {
 		return growthRateVictems;
 	}
-	public void setGrowthRateVictems(float growthRateVictems) {
+	public void setGrowthRateVictems(double growthRateVictems) {
 		this.growthRateVictems = growthRateVictems;
 	}
-	public float getConstantK() {
+	public ConstantK getConstantK() {
 		return constantK;
 	}
-	public void setConstantK(float constantK) {
+	public void setConstantK(ConstantK constantK) {
 		this.constantK = constantK;
 	}
-	public float getConstantD() {
+	public ConstantD getConstantD() {
 		return constantD;
 	}
-	public void setConstantD(float constantD) {
+	public void setConstantD(ConstantD constantD) {
 		this.constantD = constantD;
 	}
+
 	@Override
 	public String toString() {
 		return "PredationModelPreyGrowth [victem=" + victem + ", predator=" + predator + ", growthRateVictems="
-				+ growthRateVictems + ", constantK=" + constantK + ", constantD=" + constantD + "]";
+				+ growthRateVictems + ", constantK=" + constantK.getConstantK() + ", constantD=" + constantD.getConstantD() + ", populationRise="
+				+ populationRise + "]";
 	}
 	// the method to calculate the population growth
 	public void calculatingFormula() {
 		int V = this.victem;
 		int P = this.predator;
-		float r = this.growthRateVictems;
-		float k = this.constantK;
-		float D = this.constantD;
+		double r = this.growthRateVictems;
+		double k = this.constantK.getConstantK();
+		double D = this.constantD.getConstantD();
 		
-		float victemPopulationGrowth = k*V;
+		double victemPopulationGrowth = k*V;
 		victemPopulationGrowth = victemPopulationGrowth/(V+D);
 		victemPopulationGrowth = victemPopulationGrowth*P;
 		victemPopulationGrowth = (r*V)-victemPopulationGrowth;
-		this.populationRise = Math.round(victemPopulationGrowth);
+		this.populationRise = (int) Math.round(victemPopulationGrowth);
 	}
-	
+    public static void main(String[] args) {
+    	ConstantK k = new ConstantK(6);
+    	ConstantD d = new ConstantD(2);
+        PredationModelPreyGrowth model = new PredationModelPreyGrowth(100, 2, 0.1, k, d);
+        model.calculatingFormula();
+        System.out.println(model);
+    }
 	
 	
 	
