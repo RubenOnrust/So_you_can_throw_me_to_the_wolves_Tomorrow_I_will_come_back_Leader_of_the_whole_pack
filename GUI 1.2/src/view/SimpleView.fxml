@@ -32,9 +32,8 @@
                         </StackedAreaChart>
                         <TreeTableView fx:id="table" layoutX="110.0" layoutY="418.0" prefHeight="200.0" prefWidth="327.0">
                           <columns>
-                            <TreeTableColumn fx:id="yearColumn" prefWidth="75.0" text="YEAR" />
-                            <TreeTableColumn fx:id="animalColumn" prefWidth="99.0" text="ANIMAL" />
-                              <TreeTableColumn fx:id="popSizeColumn" prefWidth="152.0" text="POPULATION SIZE" />
+                            <TreeTableColumn id="animalColumn" fx:id="animalColumn" prefWidth="134.0" text="ANIMAL" />
+                              <TreeTableColumn id="popSizeColumn" fx:id="popSizeColumn" prefWidth="192.0" text="POPULATION SIZE" />
                           </columns>
                         </TreeTableView>
                      </children>

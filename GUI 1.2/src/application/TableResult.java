@@ -5,27 +5,20 @@ public class TableResult {
 	//duh
 	
 	
-	private int year;
+	
 	private String animal;
 	private int popSize;
 	
 	//constructor
-	public TableResult(int year, String animal, int popSize) {
-		this.year = year;
+	public TableResult(String animal, int popSize) {
+		
 		this.animal = animal;
 		this.popSize = popSize;
 	}
-	public TableResult(int year) {
-		this.year=year;
+	public TableResult(String year) {
+		this.animal=year;
 	}
 
-	public int getYear() {
-		return year;
-	}
-
-	public void setYear(int year) {
-		this.year = year;
-	}
 
 	public String getAnimal() {
 		return animal;
