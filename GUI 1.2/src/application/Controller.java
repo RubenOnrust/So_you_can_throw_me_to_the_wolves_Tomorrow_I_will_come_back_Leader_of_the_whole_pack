@@ -11,6 +11,7 @@ import javafx.scene.chart.StackedAreaChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.SelectionMode;
+import javafx.scene.control.TextField;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeTableColumn;
 import javafx.scene.control.TreeTableView;
@@ -30,11 +31,27 @@ public class Controller implements Initializable{
 	@FXML private TreeTableView<TableResult> table;
 	@FXML private TreeTableColumn<TableResult,String> animalColumn;
 	@FXML private TreeTableColumn<TableResult,Number> popSizeColumn;
+	@FXML private TextField cattleInput;
+	@FXML private TextField horseInput; 
+	@FXML private TextField deerInput;
+	@FXML private TextField wolfInput;
+	@FXML private TextField yearsInput;
+	
+	
 	
 	//adding data into the chart, table
 	public void calculate(ActionEvent event) {
-		//deletes previous data fro the chart in case there was some 
+		//deletes previous data for the chart in case there was some 
 		chart.getData().removeAll(chart.getData());
+		table.setRoot(null);
+		
+		//here you get input from buttons
+		 if ((cattleInput.getText() != null && !cattleInput.getText().isEmpty())) {
+			 	System.out.println(cattleInput.getText());
+		        } else {
+		        	System.out.println();
+		        }
+		     
 		
 		//instances
 		Cattle cattle=new Cattle();
@@ -61,7 +78,7 @@ public class Controller implements Initializable{
 		popSizeColumn.setCellValueFactory(new TreeItemPropertyValueFactory<TableResult,Number>("popSize"));
 		
 		//fake data just so it shows something
-		TreeItem<TableResult> year11=new TreeItem<TableResult>(new TableResult("cattle",100));
+		TreeItem<TableResult> year11=new TreeItem<TableResult>(new TableResult("cattle",30));
 		TreeItem<TableResult> year12=new TreeItem<TableResult>(new TableResult("horse",100));
 		TreeItem<TableResult> year13=new TreeItem<TableResult>(new TableResult("wolf",100));
 		TreeItem<TableResult> year1=new TreeItem<TableResult>(new TableResult("Year 1"));
@@ -80,6 +97,12 @@ public class Controller implements Initializable{
 		table.setRoot(root);
 		table.setShowRoot(false);
 		
+		//empties text fields
+		cattleInput.clear();
+		wolfInput.clear();
+		deerInput.clear();
+		yearsInput.clear();
+		horseInput.clear();		
 		
 	}
 
