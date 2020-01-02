@@ -1,25 +1,25 @@
 package livingOrganisms;
 
 public class Wolve {
-	private int populationSize;
-	private static double hCattle;
+	private static int populationSize = 2;
+	private static double hCattle = 0.42;
 	private static double hHorse;
 	private static double hDeer;
 	
 	public Wolve(int populationSize, double hCattle, double hHorse, double hDeer) {
 		super();
-		this.populationSize = populationSize;
+		Wolve.populationSize = populationSize;
 		Wolve.hCattle = hCattle;
 		Wolve.hHorse = hHorse;
 		Wolve.hDeer = hDeer;
 	}
 
-	public int getPopulationSize() {
+	public static int getPopulationSize() {
 		return populationSize;
 	}
 
 	public void setPopulationSize(int populationSize) {
-		this.populationSize = populationSize;
+		Wolve.populationSize = populationSize;
 	}
 
 	public static double gethCattle() {

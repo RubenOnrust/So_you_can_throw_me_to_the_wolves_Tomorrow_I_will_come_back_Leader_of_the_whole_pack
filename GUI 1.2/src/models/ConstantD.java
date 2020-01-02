@@ -21,7 +21,7 @@ public class ConstantD {
 
 	@Override
 	public String toString() {
-		return "CalculatingConstantK [constantK=" + constantD + "]";
+		return "CalculatingConstantD [constantD=" + constantD + "]";
 	}
 	// calculates constant d
 	public void calculateDCattle() {

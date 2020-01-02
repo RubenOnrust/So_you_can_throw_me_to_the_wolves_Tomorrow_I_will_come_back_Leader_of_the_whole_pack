@@ -1,7 +1,7 @@
 package livingOrganisms;
 
 public class Horse extends Animal{
-	//paramers exact numbers
+	//parameters exact numbers
 		private static int initialPopulationSize=50;
 		private static int r=3;
 		private static double lambda;

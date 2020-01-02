@@ -2,9 +2,9 @@ package livingOrganisms;
 
 public class Cattle extends Animal{
 	//parameters exact numbers
-	private static int initialPopulationSize=5;
+	public static int initialPopulationSize= 1000;
 	private static int r=2;
-	private static double lambda;
+	private static double lambda = 1.1;
 	
 	public Cattle() {		
 		// TODO Auto-generated constructor stub

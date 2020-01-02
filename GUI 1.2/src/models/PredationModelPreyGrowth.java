@@ -76,15 +76,5 @@ public class PredationModelPreyGrowth extends Model {
 		victemPopulationGrowth = (r*V)-victemPopulationGrowth;
 		this.populationRise = (int) Math.round(victemPopulationGrowth);
 	}
-    public static void main(String[] args) {
-    	IntrinsicRateOfIncrease r = new IntrinsicRateOfIncrease(0.1);
-    	ConstantK k = new ConstantK(6);
-    	ConstantD d = new ConstantD(2);
-        PredationModelPreyGrowth model = new PredationModelPreyGrowth(100, 2, r, k, d);
-        model.calculatingFormula();
-        System.out.println(model);
-    }
-	
-	
 	
 }

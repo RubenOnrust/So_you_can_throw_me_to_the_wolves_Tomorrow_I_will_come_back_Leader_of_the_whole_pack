@@ -1,7 +1,7 @@
 package livingOrganisms;
 
 public class AlphaConstants {
-	private static double alphaCattle;
+	private static double alphaCattle = 6;
 	private static double alphaHorse;
 	private static double alphaDeer;
 	
