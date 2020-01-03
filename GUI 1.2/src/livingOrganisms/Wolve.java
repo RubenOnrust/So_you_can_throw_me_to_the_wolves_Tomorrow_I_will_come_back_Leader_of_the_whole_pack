@@ -1,24 +1,20 @@
 package livingOrganisms;
 
-public class Wolve {
+public class Wolve extends Animal {
 	private static int populationSize = 2;
 	private static double hCattle = 0.42;
-	private static double hHorse;
-	private static double hDeer;
+	private static double hHorse = 0.58;
+	private static double hDeer = 0.33;
 	
-	public Wolve(int populationSize, double hCattle, double hHorse, double hDeer) {
-		super();
-		Wolve.populationSize = populationSize;
-		Wolve.hCattle = hCattle;
-		Wolve.hHorse = hHorse;
-		Wolve.hDeer = hDeer;
+	public Wolve() {
+		// TODO Auto-generated constructor stub
 	}
 
 	public static int getPopulationSize() {
 		return populationSize;
 	}
 
-	public void setPopulationSize(int populationSize) {
+	public static void setPopulationSize(int populationSize) {
 		Wolve.populationSize = populationSize;
 	}
 
@@ -26,7 +22,7 @@ public class Wolve {
 		return hCattle;
 	}
 
-	public void sethCattle(double hCattle) {
+	public static void sethCattle(double hCattle) {
 		Wolve.hCattle = hCattle;
 	}
 
@@ -34,7 +30,7 @@ public class Wolve {
 		return hHorse;
 	}
 
-	public void sethHorse(double hHorse) {
+	public static void sethHorse(double hHorse) {
 		Wolve.hHorse = hHorse;
 	}
 
@@ -42,15 +38,8 @@ public class Wolve {
 		return hDeer;
 	}
 
-	public void sethDeer(double hDeer) {
+	public static void sethDeer(double hDeer) {
 		Wolve.hDeer = hDeer;
 	}
-
-	@Override
-	public String toString() {
-		return "Wolve [populationSize=" + populationSize + ", hCattle=" + hCattle + ", hHorse=" + hHorse + ", hDeer="
-				+ hDeer + "]";
-	}
-	
 	
 }
