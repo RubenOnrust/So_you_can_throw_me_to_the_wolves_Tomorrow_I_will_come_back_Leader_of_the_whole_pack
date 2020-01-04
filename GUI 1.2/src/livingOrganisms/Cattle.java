@@ -2,7 +2,7 @@ package livingOrganisms;
 
 import javafx.collections.ObservableList;
 
-public class Cattle extends Animal{
+public class Cattle{
 	//parameters exact numbers
 	public static int initialPopulationSize= 1000;
 	public static int r=2;
@@ -21,19 +21,19 @@ public class Cattle extends Animal{
 		// TODO Auto-generated constructor stub
 	}
 
-	public int getInitialPopulationSize() {
+	public static int getInitialPopulationSize() {
 		return initialPopulationSize;
 	}
 
-	public void setInitialPopulationSize(int initialPopulationSize) {
+	public static void setInitialPopulationSize(int initialPopulationSize) {
 		Cattle.initialPopulationSize = initialPopulationSize;
 	}
 
-	public int getR() {
+	public static int getR() {
 		return r;
 	}
 
-	public void setR(int r) {
+	public static void setR(int r) {
 		Cattle.r = r;
 	}
 

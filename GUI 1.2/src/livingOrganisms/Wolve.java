@@ -1,6 +1,6 @@
 package livingOrganisms;
 
-public class Wolve extends Animal {
+public class Wolve {
 	private static int populationSize = 2;
 	private static double hCattle = 0.42;
 	private static double hHorse = 0.58;

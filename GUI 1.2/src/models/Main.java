@@ -20,16 +20,7 @@ public class Main {
 //		for (int i = 0; i < a.getOutputPredationModel().size(); i++) {
 //			outputList.add(a.getOutputPredationModel().get(i));			
 //		}
-		System.out.println(outputList);
-		System.out.println(outputList.getClass());
-		Wolve.setPopulationSize(1000);
-		System.out.println(a.getOutputListCattle());
-		a.calculateObservableListWithHorseResults();
-		System.out.println(a.getOutputListHorse().getClass());
-		System.out.println(a.getOutputListHorse());
-		a.calculateObservableListWithDeerResults();
-		System.out.println(a.getOutputListDeer());
-
+		
 	}
 
 }
