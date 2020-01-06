@@ -48,7 +48,7 @@ public class Controller implements Initializable{
 	@FXML private TextField wolfInput;
 	@FXML private TextField yearsInput;
 	
-	
+	//fuck you github
 	
 	//adding data into the chart, table
 	public void calculate(ActionEvent event) {
