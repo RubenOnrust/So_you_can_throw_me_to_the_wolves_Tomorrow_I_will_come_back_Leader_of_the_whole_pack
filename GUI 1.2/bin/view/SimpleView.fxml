@@ -6,9 +6,9 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.TreeTableColumn?>
-<?import javafx.scene.control.TreeTableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane prefHeight="454.0" prefWidth="775.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller">
@@ -42,12 +42,15 @@
                             <NumberAxis side="LEFT" />
                           </yAxis>
                         </StackedAreaChart>
-                        <TreeTableView fx:id="table" layoutX="110.0" layoutY="418.0" prefHeight="200.0" prefWidth="327.0">
+                        <TableView fx:id="table" layoutX="51.0" layoutY="414.0" prefHeight="200.0" prefWidth="444.0" AnchorPane.bottomAnchor="86.0">
                           <columns>
-                            <TreeTableColumn id="animalColumn" fx:id="animalColumn" prefWidth="134.0" text="ANIMAL" />
-                              <TreeTableColumn id="popSizeColumn" fx:id="popSizeColumn" prefWidth="192.0" text="POPULATION SIZE" />
+                            <TableColumn fx:id="yearColumn" prefWidth="40.0" text="Year" />
+                            <TableColumn fx:id="cattleColumn" prefWidth="100.0" text="Cattle" />
+                              <TableColumn fx:id="deerColumn" prefWidth="100.0" text="Deer" />
+                              <TableColumn fx:id="horseColumn" prefWidth="100.0" text="Horses" />
+                              <TableColumn fx:id="wolfColumn" prefWidth="100.0" text="Wolves" />
                           </columns>
-                        </TreeTableView>
+                        </TableView>
                      </children>
                   </AnchorPane>
               </content>
