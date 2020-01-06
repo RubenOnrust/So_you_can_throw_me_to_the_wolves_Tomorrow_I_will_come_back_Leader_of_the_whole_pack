@@ -19,6 +19,7 @@ import javafx.scene.control.cell.TreeItemPropertyValueFactory;
 import livingOrganisms.Cattle;
 import livingOrganisms.Horse;
 import models.ExponentialPopulationGrowth;
+import models.OutputPredationModelPreyGrowth;
 
 
 
@@ -30,7 +31,7 @@ public class Controller implements Initializable{
 	@FXML private StackedAreaChart<Number,Number> chart;
 	@FXML private TreeTableView<TableResult> table;
 	@FXML private TreeTableColumn<TableResult,String> animalColumn;
-	@FXML private TreeTableColumn<TableResult,Number> popSizeColumn;
+	@FXML private TreeTableColumn<TableResult,Integer> popSizeColumn;
 	@FXML private TextField cattleInput;
 	@FXML private TextField horseInput; 
 	@FXML private TextField deerInput;
@@ -51,8 +52,18 @@ public class Controller implements Initializable{
 		        } else {
 		        	System.out.println();
 		        }
-		     
 		
+		//cattle observablelist
+		OutputPredationModelPreyGrowth a = new OutputPredationModelPreyGrowth();
+		a.calculateObservableListWithCattleResults();
+		a.getOutputListCattle();
+		a.calculateObservableListWithDeerResults();
+		a.getOutputListDeer();
+		a.calculateObservableListWithHorseResults();
+		a.getOutputListHorse();
+		a.calculateObservableListWithWolveResults();
+		a.getOutputListWolve();
+		 
 		//instances
 		Cattle cattle=new Cattle();
 		ExponentialPopulationGrowth growthC=new ExponentialPopulationGrowth(cattle);
@@ -75,7 +86,7 @@ public class Controller implements Initializable{
 		//Table
 		//defines what will be displayed in which column
 		animalColumn.setCellValueFactory(new TreeItemPropertyValueFactory<TableResult,String>("animal"));
-		popSizeColumn.setCellValueFactory(new TreeItemPropertyValueFactory<TableResult,Number>("popSize"));
+		popSizeColumn.setCellValueFactory(new TreeItemPropertyValueFactory<TableResult,Integer>("popSize"));
 		
 		//fake data just so it shows something
 		TreeItem<TableResult> year11=new TreeItem<TableResult>(new TableResult("cattle",30));

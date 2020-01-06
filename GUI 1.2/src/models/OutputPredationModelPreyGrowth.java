@@ -157,7 +157,6 @@ public class OutputPredationModelPreyGrowth {
 		while (i<10) {
 			i++;
 			IntrinsicRateOfIncrease r = new IntrinsicRateOfIncrease(0.1);
-			System.out.println(populationSize);
 			double populationRise = populationSize * r.getR();
 			populationSize = populationRise + populationSize;
 			this.outputListWolve.add((int) Math.round(populationSize));
