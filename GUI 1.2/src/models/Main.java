@@ -21,11 +21,8 @@ public class Main {
 		System.out.println(a.getOutputListHorse());
 		a.calculateObservableListWithWolveResults();
 		System.out.println(a.getOutputListWolve());
-		ObservableList<Integer> outputList = FXCollections.observableArrayList();
-//		for (int i = 0; i < a.getOutputPredationModel().size(); i++) {
-//			outputList.add(a.getOutputPredationModel().get(i));			
-//		}
-//		System.out.println(outputList);
+		mergedPredationModelPreyGrowthOutput b = new mergedPredationModelPreyGrowthOutput(a);
+		b.getCombinedLists().ge
 	}
 
 }
