@@ -22,7 +22,9 @@ import javafx.scene.control.TreeTableColumn;
 import javafx.scene.control.TreeTableView;
 import javafx.scene.control.cell.TreeItemPropertyValueFactory;
 import livingOrganisms.Cattle;
+import livingOrganisms.Deer;
 import livingOrganisms.Horse;
+import livingOrganisms.Wolve;
 import models.ExponentialPopulationGrowth;
 import models.OutputPredationModelPreyGrowth;
 
@@ -53,14 +55,45 @@ public class Controller implements Initializable{
 		//deletes previous data for the chart in case there was some 
 		chart.getData().removeAll(chart.getData());
 		
-		//here you get input from buttons
+		//here you get input, checks whether it is an integer, then sets IntialPopulationSizes
 		 if ((cattleInput.getText() != null && !cattleInput.getText().isEmpty())) {
-			// if (int cattleInput.getText()>0 &&
-					 JOptionPane.showMessageDialog(null, "You need to enter a number between 0 and 100");
-			 	System.out.println(cattleInput.getText());
-		        } else {
-		        	JOptionPane.showMessageDialog(null, "You need to enter a number between 0 and 100");
-		        }
+			 try {
+				 if (Integer.parseInt(cattleInput.getText())>0 && Integer.parseInt(cattleInput.getText())<100){
+					 Cattle.setInitialPopulationSize(Integer.parseInt(cattleInput.getText()));}
+			 }catch (NumberFormatException e) {
+				 JOptionPane.showMessageDialog(null, "You need to enter a number between 0 and 100");}
+			 }
+		 if ((horseInput.getText() != null && !horseInput.getText().isEmpty())) {
+			 try {
+				 if (Integer.parseInt(horseInput.getText())>0 && Integer.parseInt(horseInput.getText())<100){
+					 Horse.setInitialPopulationSize(Integer.parseInt(horseInput.getText()));}
+			 }catch (NumberFormatException e) {
+				 JOptionPane.showMessageDialog(null, "You need to enter a number between 0 and 100");}
+			 }
+		 if ((deerInput.getText() != null && !deerInput.getText().isEmpty())) {
+			 try {
+				 if (Integer.parseInt(deerInput.getText())>0 && Integer.parseInt(deerInput.getText())<100){
+					 Deer.setInitialPopulationSize(Integer.parseInt(deerInput.getText()));}
+			 }catch (NumberFormatException e) {
+				 JOptionPane.showMessageDialog(null, "You need to enter a number between 0 and 100");}
+			 }
+		 if ((wolfInput.getText() != null && !wolfInput.getText().isEmpty())) {
+			 try {
+				 if (Integer.parseInt(wolfInput.getText())>0 && Integer.parseInt(wolfInput.getText())<100){
+					 Wolve.setPopulationSize(Integer.parseInt(wolfInput.getText()));}
+			 }catch (NumberFormatException e) {
+				 JOptionPane.showMessageDialog(null, "You need to enter a number between 0 and 100");}
+			 }
+		 if ((yearsInput.getText() != null && !yearsInput.getText().isEmpty())) {
+			 try {
+				 if (Integer.parseInt(yearsInput.getText())>0 && Integer.parseInt(yearsInput.getText())<100){
+					 // don't know where to put this now(Integer.parseInt(yearsInput.getText()));
+					 }
+			 }catch (NumberFormatException e) {
+				 JOptionPane.showMessageDialog(null, "You need to enter a number between 0 and 100");}
+			 }
+			 
+		
 		
 		//cattle observablelist
 		OutputPredationModelPreyGrowth a = new OutputPredationModelPreyGrowth();
@@ -73,26 +106,8 @@ public class Controller implements Initializable{
 		a.calculateObservableListWithWolveResults();
 		a.getOutputListWolve();
 		 
-		//instances
-		Cattle cattle=new Cattle();
-		//ExponentialPopulationGrowth growthC=new ExponentialPopulationGrowth(cattle);
-		Horse horse=new Horse();
-		//ExponentialPopulationGrowth growthH=new ExponentialPopulationGrowth(horse);
-		
-		//model calculates data and puts it into a series
-		//growthC.updateModel();
-		XYChart.Series<Number,Number> cattleSeries= new XYChart.Series<Number,Number>();
-		
-		//cattleSeries=growthC.getExpPopGrowthSeries();
-		//growthH.updateModel();
-		XYChart.Series<Number,Number> horseSeries= new XYChart.Series<Number,Number>();
-		//horseSeries=growthH.getExpPopGrowthSeries();
-		
-		
-		//draws data into the chart
-		chart.getData().add(cattleSeries);
-		chart.getData().add(horseSeries);
-		
+		//chart
+
 		//Table
 		
 		
