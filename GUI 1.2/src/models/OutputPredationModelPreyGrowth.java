@@ -15,6 +15,7 @@ public class OutputPredationModelPreyGrowth {
 	private ObservableList<Integer> outputListCattle = FXCollections.observableArrayList();
 	private ObservableList<Integer> outputListHorse = FXCollections.observableArrayList();
 	private ObservableList<Integer> outputListDeer = FXCollections.observableArrayList();
+	private ObservableList<Integer> outputListWolve = FXCollections.observableArrayList();
 
 	public OutputPredationModelPreyGrowth() {
 		
@@ -50,6 +51,14 @@ public class OutputPredationModelPreyGrowth {
 
 	public void setOutputListDeer(ObservableList<Integer> outputListDeer) {
 		this.outputListDeer = outputListDeer;
+	}
+	
+	public ObservableList<Integer> getOutputListWolve() {
+		return outputListWolve;
+	}
+
+	public void setOutputListWolve(ObservableList<Integer> outputListWolve) {
+		this.outputListWolve = outputListWolve;
 	}
 
 	public void calculateObservableListWithCattleResults() {
@@ -142,6 +151,18 @@ public class OutputPredationModelPreyGrowth {
         this.outputPredationModel = listPopulationSizes;
 	}
 	
+	public void calculateObservableListWithWolveResults() {
+		int i = 0;
+		double populationSize = Wolve.getPopulationSize();
+		while (i<10) {
+			i++;
+			IntrinsicRateOfIncrease r = new IntrinsicRateOfIncrease(0.1);
+			System.out.println(populationSize);
+			double populationRise = populationSize * r.getR();
+			populationSize = populationRise + populationSize;
+			this.outputListWolve.add((int) Math.round(populationSize));
+		}
+	}
 	@Override
 	public String toString() {
 		return "OutputPredationModelPreyGrowth [Populationsize=" + outputPredationModel + "]";

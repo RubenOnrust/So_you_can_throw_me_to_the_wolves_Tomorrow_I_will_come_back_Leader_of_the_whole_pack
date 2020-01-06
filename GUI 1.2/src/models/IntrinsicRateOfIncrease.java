@@ -3,6 +3,7 @@ package models;
 import livingOrganisms.Cattle;
 import livingOrganisms.Deer;
 import livingOrganisms.Horse;
+import livingOrganisms.Wolve;
 
 public class IntrinsicRateOfIncrease {
 	private double r;
@@ -39,5 +40,8 @@ public class IntrinsicRateOfIncrease {
 		double intrinsicRateOfIncrease = Math.log(Deer.getLambda());
 		this.r = intrinsicRateOfIncrease;		
 	}
-
+	public void calculateRWolve() {
+		double intrinsicRateOfIncrease = Math.log(Wolve.getLambda());
+		this.r = intrinsicRateOfIncrease;
+	}
 }

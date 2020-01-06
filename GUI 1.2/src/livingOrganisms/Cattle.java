@@ -4,7 +4,7 @@ import javafx.collections.ObservableList;
 
 public class Cattle{
 	//parameters exact numbers
-	public static int initialPopulationSize= 1000;
+	public static int initialPopulationSize= 450;
 	public static int r=2;
 	public static double lambda = 1.1;
 	public static ObservableList<Integer> caclculatedPopulationSizes;
