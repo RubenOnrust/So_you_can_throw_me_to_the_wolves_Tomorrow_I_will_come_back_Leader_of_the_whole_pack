@@ -18,7 +18,7 @@ public class OutputPredationModelPreyGrowth {
 	private ObservableList<Integer> outputListWolve = FXCollections.observableArrayList();
 
 	public OutputPredationModelPreyGrowth() {
-		
+
 	}
 
 	public List<Integer> getOutputPredationModel() {
@@ -28,7 +28,7 @@ public class OutputPredationModelPreyGrowth {
 	public void setOutputPredationModel(ArrayList<Integer> outputPredationModel) {
 		this.outputPredationModel = outputPredationModel;
 	}
-	
+
 	public ObservableList<Integer> getOutputListCattle() {
 		return outputListCattle;
 	}
@@ -36,7 +36,7 @@ public class OutputPredationModelPreyGrowth {
 	public void setOutputListCattle(ObservableList<Integer> outputList) {
 		this.outputListCattle = outputList;
 	}
-	
+
 	public ObservableList<Integer> getOutputListHorse() {
 		return outputListHorse;
 	}
@@ -52,7 +52,7 @@ public class OutputPredationModelPreyGrowth {
 	public void setOutputListDeer(ObservableList<Integer> outputListDeer) {
 		this.outputListDeer = outputListDeer;
 	}
-	
+
 	public ObservableList<Integer> getOutputListWolve() {
 		return outputListWolve;
 	}
@@ -64,97 +64,97 @@ public class OutputPredationModelPreyGrowth {
 	public void calculateObservableListWithCattleResults() {
 		int i = 0;
 		int p = Wolve.getPopulationSize();
-    	IntrinsicRateOfIncrease r = new IntrinsicRateOfIncrease(0.1);
-    	r.calculateRCattle();
-    	ConstantK k = new ConstantK(0);
-    	k.calculateKCattle();
-    	ConstantD d = new ConstantD(0);
-    	d.calculateDCattle();
-    	int v = Cattle.initialPopulationSize;
-        PredationModelPreyGrowth model = new PredationModelPreyGrowth(v, p, r, k, d);
-        model.calculatingFormula();
-        ArrayList<Integer> listPopulationSizes = new ArrayList<Integer>();
-        while (i<10) {
-        	i++;
-        	listPopulationSizes.add(model.getVictem());
-        	model.setVictem(model.getVictem()+model.getPopulationRise());
-        	model.calculatingFormula();
+		IntrinsicRateOfIncrease r = new IntrinsicRateOfIncrease(0.1);
+		r.calculateRCattle();
+		ConstantK k = new ConstantK(0);
+		k.calculateKCattle();
+		ConstantD d = new ConstantD(0);
+		d.calculateDCattle();
+		int v = Cattle.initialPopulationSize;
+		PredationModelPreyGrowth model = new PredationModelPreyGrowth(v, p, r, k, d);
+		model.calculatingFormula();
+		ArrayList<Integer> listPopulationSizes = new ArrayList<Integer>();
+		while (i < 10) {
+			i++;
+			listPopulationSizes.add(model.getVictem());
+			model.setVictem(model.getVictem() + model.getPopulationRise());
+			model.calculatingFormula();
 //			if(i == 10) {
 //				System.out.println(listPopulationSizes);
 //				
 //			}
-        }
+		}
 		for (int j = 0; j < listPopulationSizes.size(); j++) {
 			this.outputListCattle.add(listPopulationSizes.get(j));
-			
+
 		}
-        this.outputPredationModel = listPopulationSizes;
+		this.outputPredationModel = listPopulationSizes;
 	}
-	
+
 	public void calculateObservableListWithHorseResults() {
 		int i = 0;
 		int p = Wolve.getPopulationSize();
-    	IntrinsicRateOfIncrease r = new IntrinsicRateOfIncrease(0.1);
-    	r.calculateRHorse();
-    	ConstantK k = new ConstantK(0);
-    	k.calculateKHorse();
-    	ConstantD d = new ConstantD(0);
-    	d.calculateDHorse();
-    	int v = Horse.initialPopulationSize;
-        PredationModelPreyGrowth model = new PredationModelPreyGrowth(v, p, r, k, d);
-        model.calculatingFormula();
-        ArrayList<Integer> listPopulationSizes = new ArrayList<Integer>();
-        while (i<10) {
-        	i++;
-        	listPopulationSizes.add(model.getVictem());
-        	model.setVictem(model.getVictem()+model.getPopulationRise());
-        	model.calculatingFormula();
+		IntrinsicRateOfIncrease r = new IntrinsicRateOfIncrease(0.1);
+		r.calculateRHorse();
+		ConstantK k = new ConstantK(0);
+		k.calculateKHorse();
+		ConstantD d = new ConstantD(0);
+		d.calculateDHorse();
+		int v = Horse.initialPopulationSize;
+		PredationModelPreyGrowth model = new PredationModelPreyGrowth(v, p, r, k, d);
+		model.calculatingFormula();
+		ArrayList<Integer> listPopulationSizes = new ArrayList<Integer>();
+		while (i < 10) {
+			i++;
+			listPopulationSizes.add(model.getVictem());
+			model.setVictem(model.getVictem() + model.getPopulationRise());
+			model.calculatingFormula();
 //			if(i == 10) {
 //				System.out.println(listPopulationSizes);
 //				
 //			}
-        }
+		}
 		for (int j = 0; j < listPopulationSizes.size(); j++) {
 			this.outputListHorse.add(listPopulationSizes.get(j));
-			
+
 		}
-        this.outputPredationModel = listPopulationSizes;
+		this.outputPredationModel = listPopulationSizes;
 	}
-	
+
 	public void calculateObservableListWithDeerResults() {
 		int i = 0;
 		int p = Wolve.getPopulationSize();
-    	IntrinsicRateOfIncrease r = new IntrinsicRateOfIncrease(0.1);
-    	r.calculateRDeer();
-    	ConstantK k = new ConstantK(0);
-    	k.calculateKDeer();
-    	ConstantD d = new ConstantD(0);
-    	d.calculateDDeer();
-    	int v = Deer.initialPopulationSize;
-        PredationModelPreyGrowth model = new PredationModelPreyGrowth(v, p, r, k, d);
-        model.calculatingFormula();
-        ArrayList<Integer> listPopulationSizes = new ArrayList<Integer>();
-        while (i<10) {
-        	i++;
-        	listPopulationSizes.add(model.getVictem());
-        	model.setVictem(model.getVictem()+model.getPopulationRise());
-        	model.calculatingFormula();
+		IntrinsicRateOfIncrease r = new IntrinsicRateOfIncrease(0.1);
+		r.calculateRDeer();
+		ConstantK k = new ConstantK(0);
+		k.calculateKDeer();
+		ConstantD d = new ConstantD(0);
+		d.calculateDDeer();
+		int v = Deer.initialPopulationSize;
+		PredationModelPreyGrowth model = new PredationModelPreyGrowth(v, p, r, k, d);
+		model.calculatingFormula();
+		ArrayList<Integer> listPopulationSizes = new ArrayList<Integer>();
+		while (i < 10) {
+			i++;
+			listPopulationSizes.add(model.getVictem());
+			model.setVictem(model.getVictem() + model.getPopulationRise());
+			model.calculatingFormula();
 //			if(i == 10) {
 //				System.out.println(listPopulationSizes);
 //				
 //			}
-        }
+		}
 		for (int j = 0; j < listPopulationSizes.size(); j++) {
 			this.outputListDeer.add(listPopulationSizes.get(j));
-			
+
 		}
-        this.outputPredationModel = listPopulationSizes;
+		this.outputPredationModel = listPopulationSizes;
 	}
-	
+
 	public void calculateObservableListWithWolveResults() {
 		int i = 0;
 		double populationSize = Wolve.getPopulationSize();
-		while (i<10) {
+		while (i < 10) {
 			i++;
 			IntrinsicRateOfIncrease r = new IntrinsicRateOfIncrease(0.1);
 			double populationRise = populationSize * r.getR();
@@ -162,6 +162,7 @@ public class OutputPredationModelPreyGrowth {
 			this.outputListWolve.add((int) Math.round(populationSize));
 		}
 	}
+
 	@Override
 	public String toString() {
 		return "OutputPredationModelPreyGrowth [Populationsize=" + outputPredationModel + "]";

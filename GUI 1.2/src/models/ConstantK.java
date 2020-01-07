@@ -22,17 +22,20 @@ public class ConstantK {
 	public String toString() {
 		return "CalculatingConstantK [constantK=" + constantK + "]";
 	}
+
 	// calculates the constant K
 	public void calculateKCattle() {
-		double resultOfCalculation = 1/Wolve.gethCattle();
+		double resultOfCalculation = 1 / Wolve.gethCattle();
 		this.constantK = resultOfCalculation;
 	}
+
 	public void calculateKHorse() {
-		double resultOfCalculation = 1/Wolve.gethHorse();
+		double resultOfCalculation = 1 / Wolve.gethHorse();
 		this.constantK = resultOfCalculation;
 	}
+
 	public void calculateKDeer() {
-		double resultOfCalculation = 1/Wolve.gethDeer();
+		double resultOfCalculation = 1 / Wolve.gethDeer();
 		this.constantK = resultOfCalculation;
 	}
 }

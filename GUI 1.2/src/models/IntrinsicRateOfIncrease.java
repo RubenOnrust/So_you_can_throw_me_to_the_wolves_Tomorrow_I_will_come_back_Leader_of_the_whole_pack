@@ -25,21 +25,22 @@ public class IntrinsicRateOfIncrease {
 	public String toString() {
 		return "IntrinsicRateOfIncrease [r=" + r + "]";
 	}
-	
+
 	public void calculateRCattle() {
 		double intrinsicRateOfIncrease = Math.log(Cattle.getLambda());
 		this.r = intrinsicRateOfIncrease;
 	}
-	
+
 	public void calculateRHorse() {
 		double intrinsicRateOfIncrease = Math.log(Horse.getLambda());
-		this.r = intrinsicRateOfIncrease;		
+		this.r = intrinsicRateOfIncrease;
 	}
-	
+
 	public void calculateRDeer() {
 		double intrinsicRateOfIncrease = Math.log(Deer.getLambda());
-		this.r = intrinsicRateOfIncrease;		
+		this.r = intrinsicRateOfIncrease;
 	}
+
 	public void calculateRWolve() {
 		double intrinsicRateOfIncrease = Math.log(Wolve.getLambda());
 		this.r = intrinsicRateOfIncrease;

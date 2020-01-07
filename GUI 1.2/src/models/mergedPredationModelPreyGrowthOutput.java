@@ -1,6 +1,6 @@
 package models;
 
-public class mergedPredationModelPreyGrowthOutput  {
+public class mergedPredationModelPreyGrowthOutput {
 	private OutputPredationModelPreyGrowth combinedLists;
 
 	public mergedPredationModelPreyGrowthOutput(OutputPredationModelPreyGrowth combinedLists) {
@@ -19,6 +19,5 @@ public class mergedPredationModelPreyGrowthOutput  {
 	public String toString() {
 		return "mergedPredationModelPreyGrowthOutput [combinedLists=" + combinedLists + "]";
 	}
-	
 
 }

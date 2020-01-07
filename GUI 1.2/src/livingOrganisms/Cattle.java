@@ -2,13 +2,13 @@ package livingOrganisms;
 
 import javafx.collections.ObservableList;
 
-public class Cattle{
-	//parameters exact numbers
-	public static int initialPopulationSize= 450;
-	public static int r=2;
+public class Cattle {
+	// parameters exact numbers
+	public static int initialPopulationSize = 450;
+	public static int r = 2;
 	public static double lambda = 1.1;
 	public static ObservableList<Integer> caclculatedPopulationSizes;
-	
+
 	public static ObservableList<Integer> getCaclculatedPopulationSizes() {
 		return caclculatedPopulationSizes;
 	}
@@ -17,7 +17,7 @@ public class Cattle{
 		Cattle.caclculatedPopulationSizes = caclculatedPopulationSizes;
 	}
 
-	public Cattle() {		
+	public Cattle() {
 		// TODO Auto-generated constructor stub
 	}
 
@@ -45,6 +45,4 @@ public class Cattle{
 		Cattle.lambda = lambda;
 	}
 
-	
-	
 }

@@ -23,19 +23,20 @@ public class ConstantD {
 	public String toString() {
 		return "CalculatingConstantD [constantD=" + constantD + "]";
 	}
+
 	// calculates constant d
 	public void calculateDCattle() {
-		double resultOfCalculation = 1/(AlphaConstants.getAlphaCattle()*Wolve.gethCattle());
+		double resultOfCalculation = 1 / (AlphaConstants.getAlphaCattle() * Wolve.gethCattle());
 		this.constantD = resultOfCalculation;
 	}
-	
+
 	public void calculateDHorse() {
-		double resultOfCalculation = 1/(AlphaConstants.getAlphaHorse()*Wolve.gethHorse());
+		double resultOfCalculation = 1 / (AlphaConstants.getAlphaHorse() * Wolve.gethHorse());
 		this.constantD = resultOfCalculation;
 	}
-	
+
 	public void calculateDDeer() {
-		double resultOfCalculation = 1/(AlphaConstants.getAlphaDeer()*Wolve.gethDeer());
+		double resultOfCalculation = 1 / (AlphaConstants.getAlphaDeer() * Wolve.gethDeer());
 		this.constantD = resultOfCalculation;
 	}
 }

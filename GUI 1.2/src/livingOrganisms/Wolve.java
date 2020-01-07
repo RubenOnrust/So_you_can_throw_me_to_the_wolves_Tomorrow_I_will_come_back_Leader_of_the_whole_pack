@@ -6,7 +6,7 @@ public class Wolve {
 	private static double hHorse = 0.58;
 	private static double hDeer = 0.33;
 	private static double lambda = 1.05;
-	
+
 	public Wolve() {
 		// TODO Auto-generated constructor stub
 	}
@@ -50,5 +50,5 @@ public class Wolve {
 	public static void setLambda(double lambda) {
 		Wolve.lambda = lambda;
 	}
-	
+
 }
