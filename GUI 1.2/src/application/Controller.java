@@ -131,9 +131,13 @@ public class Controller implements Initializable {
 	   	
 	 	//creates series
 	    XYChart.Series<Number,Number> cattleSeries=new XYChart.Series<Number,Number>();
+	    cattleSeries.setName("Cattle");
 	    XYChart.Series<Number,Number> deerSeries=new XYChart.Series<Number,Number>();
+	    deerSeries.setName("Deer");
 	    XYChart.Series<Number,Number> wolfSeries=new XYChart.Series<Number,Number>();
+	    wolfSeries.setName("Wolves");
 	    XYChart.Series<Number,Number> horseSeries=new XYChart.Series<Number,Number>();
+	    horseSeries.setName("Horses");
 	    //loop to add data
 	    while ( 10>i) {
 		 	TableResult test = new TableResult();

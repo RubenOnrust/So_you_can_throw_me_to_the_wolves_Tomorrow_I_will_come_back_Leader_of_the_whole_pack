@@ -35,7 +35,7 @@
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="700.0" prefWidth="553.0">
                      <children>
-                        <StackedAreaChart fx:id="chart" layoutX="27.0" layoutY="14.0">
+                        <StackedAreaChart fx:id="chart" layoutX="27.0" layoutY="14.0" title="Populatin sizes">
                           <xAxis>
                             <NumberAxis side="BOTTOM" />
                           </xAxis>
