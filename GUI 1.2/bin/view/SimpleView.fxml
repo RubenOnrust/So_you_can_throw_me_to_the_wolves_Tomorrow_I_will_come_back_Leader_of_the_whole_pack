@@ -11,7 +11,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="454.0" prefWidth="775.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller">
+<AnchorPane prefHeight="454.0" prefWidth="775.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller">
    <children>
       <SplitPane dividerPositions="0.5" layoutY="33.0" prefHeight="436.0" prefWidth="546.0" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
         <items>
@@ -35,7 +35,7 @@
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="700.0" prefWidth="553.0">
                      <children>
-                        <StackedAreaChart fx:id="chart" layoutX="74.0" layoutY="-200.0">
+                        <StackedAreaChart fx:id="chart" layoutX="27.0" layoutY="14.0">
                           <xAxis>
                             <NumberAxis side="BOTTOM" />
                           </xAxis>
@@ -43,7 +43,7 @@
                             <NumberAxis side="LEFT" />
                           </yAxis>
                         </StackedAreaChart>
-                        <TableView fx:id="tableView" layoutX="30.0" layoutY="207.0" onSort="#addData" prefHeight="200.0" prefWidth="444.0" AnchorPane.bottomAnchor="293.0">
+                        <TableView fx:id="tableView" layoutX="55.0" layoutY="423.0" onSort="#addData" prefHeight="200.0" prefWidth="444.0" AnchorPane.bottomAnchor="77.0">
                           <columns>
                             <TableColumn fx:id="yearColumn" prefWidth="40.0" text="Year" />
                             <TableColumn fx:id="cattleColumn" prefWidth="100.0" text="Cattle" />

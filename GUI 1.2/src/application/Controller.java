@@ -14,6 +14,7 @@ import javafx.event.ActionEvent;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.StackedAreaChart;
 import javafx.scene.chart.XYChart;
+import javafx.scene.chart.XYChart.Data;
 import javafx.scene.control.Button;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableColumn;
@@ -28,7 +29,6 @@ import livingOrganisms.Cattle;
 import livingOrganisms.Deer;
 import livingOrganisms.Horse;
 import livingOrganisms.Wolve;
-import models.ExponentialPopulationGrowth;
 import models.OutputPredationModelPreyGrowth;
 import models.PredationModelPreyGrowth;
 
@@ -122,20 +122,53 @@ public class Controller implements Initializable {
 			}
 		}
 
-		// cattle observablelist
+
+
+		//table
 		OutputPredationModelPreyGrowth a = new OutputPredationModelPreyGrowth();
-		a.calculateObservableListWithCattleResults();
-		a.getOutputListCattle();
-		a.calculateObservableListWithDeerResults();
-		a.getOutputListDeer();
-		a.calculateObservableListWithHorseResults();
-		a.getOutputListHorse();
-		a.calculateObservableListWithWolveResults();
-		a.getOutputListWolve();
+	 	int i = 0;
+//	    TableResult a1 =  new TableResult();
+	   	
+	 	//creates series
+	    XYChart.Series<Number,Number> cattleSeries=new XYChart.Series<Number,Number>();
+	    XYChart.Series<Number,Number> deerSeries=new XYChart.Series<Number,Number>();
+	    XYChart.Series<Number,Number> wolfSeries=new XYChart.Series<Number,Number>();
+	    XYChart.Series<Number,Number> horseSeries=new XYChart.Series<Number,Number>();
+	    //loop to add data
+	    while ( 10>i) {
+		 	TableResult test = new TableResult();
+			a.calculateObservableListWithCattleResults();
+			a.getOutputListCattle();
+			a.calculateObservableListWithDeerResults();
+			a.getOutputListDeer();
+			a.calculateObservableListWithHorseResults();
+			a.getOutputListHorse();
+			a.calculateObservableListWithWolveResults();
+			a.getOutputListWolve();
+	    	test.setYear(i);
+	    	test.setCattle((a.getOutputListCattle().get(i)));
+	    	test.setDeer((a.getOutputListDeer().get(i)));
+	    	test.setHorse((a.getOutputListHorse().get(i)));
+	    	test.setWolve((a.getOutputListWolve().get(i)));
+	    	System.out.println(test.toString());
+	    	tableView.getItems().add(test);
+	    	
+	    	//populates chart series
+	    	cattleSeries.getData().add(new Data<Number, Number> (i,a.getOutputListCattle().get(i)));
+	    	deerSeries.getData().add(new Data<Number, Number> (i,a.getOutputListCattle().get(i)));
+	    	wolfSeries.getData().add(new Data<Number, Number> (i,a.getOutputListCattle().get(i)));
+	    	horseSeries.getData().add(new Data<Number, Number> (i,a.getOutputListCattle().get(i)));
+	    	
+	    	
+	    	i++;	
+		}
+	    //adds series into the graph
+	    chart.getData().add(cattleSeries);
+	    chart.getData().add(deerSeries);
+	    chart.getData().add(wolfSeries);
+	    chart.getData().add(horseSeries);
 
-		// chart
-
-		// Table
+		
 
 		// empties text fields
 		cattleInput.clear();
@@ -156,6 +189,8 @@ public class Controller implements Initializable {
 		horseColumn.setCellValueFactory(new PropertyValueFactory<>("horse"));
 		wolfColumn.setCellValueFactory(new PropertyValueFactory<>("wolve"));
 		
+		
+		
 		//load data
 		//tableView.setItems(observableList);
 		
@@ -172,6 +207,8 @@ public class Controller implements Initializable {
 		    Deer.setInitialPopulationSize(Integer.parseInt(deerInput.getText()));
 		    Horse.setInitialPopulationSize(Integer.parseInt(horseInput.getText()));
 		    Wolve.setPopulationSize(Integer.parseInt(wolfInput.getText()));
+		    
+		    XYChart.Series<Number,Number> cattleSeries=new XYChart.Series<Number,Number>();
 		    while ( 10>i) {
 			 	TableResult test = new TableResult();
 				a.calculateObservableListWithCattleResults();
@@ -189,8 +226,16 @@ public class Controller implements Initializable {
 		    	test.setWolve((a.getOutputListWolve().get(i)));
 		    	System.out.println(test.toString());
 		    	tableView.getItems().add(test);
+		    	
+		    	//chart
+		    	cattleSeries.getData().add(new Data<Number, Number> (i,a.getOutputListCattle().get(i)));
+		    	
+		    	
 		    	i++;	
 			}
+		    chart.getData().add(cattleSeries);
+		  
+		    
 		    cattleInput.clear();
 		    deerInput.clear();
 		    horseInput.clear();
