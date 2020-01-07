@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.chart.AreaChart?>
+<?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.NumberAxis?>
-<?import javafx.scene.chart.StackedAreaChart?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
@@ -35,14 +36,6 @@
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="700.0" prefWidth="553.0">
                      <children>
-                        <StackedAreaChart fx:id="chart" layoutX="27.0" layoutY="14.0" title="Populatin sizes">
-                          <xAxis>
-                            <NumberAxis side="BOTTOM" />
-                          </xAxis>
-                          <yAxis>
-                            <NumberAxis side="LEFT" />
-                          </yAxis>
-                        </StackedAreaChart>
                         <TableView fx:id="tableView" layoutX="55.0" layoutY="423.0" onSort="#addData" prefHeight="200.0" prefWidth="444.0" AnchorPane.bottomAnchor="77.0">
                           <columns>
                             <TableColumn fx:id="yearColumn" prefWidth="40.0" text="Year" />
@@ -52,6 +45,14 @@
                               <TableColumn fx:id="wolfColumn" prefWidth="100.0" text="Wolfs" />
                           </columns>
                         </TableView>
+                        <AreaChart fx:id="chart" layoutX="27.0" layoutY="14.0" title="Population sizes" AnchorPane.topAnchor="14.0">
+                          <xAxis>
+                            <NumberAxis side="BOTTOM" />
+                          </xAxis>
+                          <yAxis>
+                            <NumberAxis side="LEFT" fx:id="yAxis"/>
+                          </yAxis>
+                        </AreaChart>
                      </children>
                   </AnchorPane>
               </content>

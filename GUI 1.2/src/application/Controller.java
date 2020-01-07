@@ -1,6 +1,7 @@
 package application;
 
 import java.net.URL;
+import java.util.Iterator;
 import java.util.ResourceBundle;
 
 import javax.swing.JOptionPane;
@@ -11,8 +12,8 @@ import javafx.fxml.Initializable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.scene.chart.AreaChart;
 import javafx.scene.chart.NumberAxis;
-import javafx.scene.chart.StackedAreaChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.chart.XYChart.Data;
 import javafx.scene.control.Button;
@@ -40,7 +41,10 @@ public class Controller implements Initializable {
 	@FXML
 	private Button testButton;
 	@FXML
-	private StackedAreaChart<Number, Number> chart;
+	private AreaChart<Number, Number> chart;
+	@FXML
+	private NumberAxis yAxis;
+	
 	@FXML
 	private TableView<TableResult> tableView;
 	
@@ -66,8 +70,6 @@ public class Controller implements Initializable {
 	private TextField wolfInput;
 	@FXML
 	private TextField yearsInput;
-
-	// help github is a bitch
 
 	// adding data into the chart, table
 	public void calculate(ActionEvent event) {
@@ -158,21 +160,33 @@ public class Controller implements Initializable {
 	    	tableView.getItems().add(test);
 	    	
 	    	//populates chart series
-	    	cattleSeries.getData().add(new Data<Number, Number> (i,a.getOutputListCattle().get(i)));
-	    	deerSeries.getData().add(new Data<Number, Number> (i,a.getOutputListCattle().get(i)));
-	    	wolfSeries.getData().add(new Data<Number, Number> (i,a.getOutputListCattle().get(i)));
-	    	horseSeries.getData().add(new Data<Number, Number> (i,a.getOutputListCattle().get(i)));
+	    	//cattleSeries.getData().add(new Data<Number, Number> (i,a.getOutputListCattle().get(i)));
+	    	//deerSeries.getData().add(new Data<Number, Number> (i,a.getOutputListDeer().get(i)));
+	    	//wolfSeries.getData().add(new Data<Number, Number> (i,a.getOutputListWolve().get(i)));
+	    	//horseSeries.getData().add(new Data<Number, Number> (i,a.getOutputListHorse().get(i)));
 	    	
 	    	
 	    	i++;	
 		}
+	    //??
+	    
+	    
+	    for(int c =0; c<a.getOutputPredationModel().size() ;c++) {
+	    	cattleSeries.getData().add(new Data<Number, Number> (c,a.getOutputListCattle().get(c)));
+	    	deerSeries.getData().add(new Data<Number, Number> (c,a.getOutputListDeer().get(c)));
+	    	wolfSeries.getData().add(new Data<Number, Number> (c,a.getOutputListWolve().get(c)));
+	    	horseSeries.getData().add(new Data<Number, Number> (c,a.getOutputListHorse().get(c)));
+	    	c++;
+	    	
+	    }
 	    //adds series into the graph
 	    chart.getData().add(cattleSeries);
 	    chart.getData().add(deerSeries);
-	    chart.getData().add(wolfSeries);
 	    chart.getData().add(horseSeries);
+	    chart.getData().add(wolfSeries);
 
 		
+	    
 
 		// empties text fields
 		cattleInput.clear();
@@ -180,6 +194,7 @@ public class Controller implements Initializable {
 		deerInput.clear();
 		yearsInput.clear();
 		horseInput.clear();
+		
 
 	}
 	ObservableList<TableResult> observableList= FXCollections.observableArrayList();
@@ -211,8 +226,7 @@ public class Controller implements Initializable {
 		    Deer.setInitialPopulationSize(Integer.parseInt(deerInput.getText()));
 		    Horse.setInitialPopulationSize(Integer.parseInt(horseInput.getText()));
 		    Wolve.setPopulationSize(Integer.parseInt(wolfInput.getText()));
-		    
-		    XYChart.Series<Number,Number> cattleSeries=new XYChart.Series<Number,Number>();
+		 
 		    while ( 10>i) {
 			 	TableResult test = new TableResult();
 				a.calculateObservableListWithCattleResults();
@@ -231,20 +245,19 @@ public class Controller implements Initializable {
 		    	System.out.println(test.toString());
 		    	tableView.getItems().add(test);
 		    	
-		    	//chart
-		    	cattleSeries.getData().add(new Data<Number, Number> (i,a.getOutputListCattle().get(i)));
+		 
 		    	
 		    	
 		    	i++;	
 			}
-		    chart.getData().add(cattleSeries);
-		  
+
 		    
 		    cattleInput.clear();
 		    deerInput.clear();
 		    horseInput.clear();
 		    wolfInput.clear();
 		    yearsInput.clear();
+		    
 		    
 		   
 		   
