@@ -34,6 +34,8 @@ public class Controller implements Initializable {
 	private AreaChart<Number, Number> chart;
 	@FXML
 	private NumberAxis yAxis;
+	@FXML
+	private NumberAxis xAxis;
 	
 	@FXML
 	private TableView<TableResult> tableView;
@@ -61,119 +63,31 @@ public class Controller implements Initializable {
 	@FXML
 	private TextField yearsInput;
 
-	// adding data into the chart, table
+	//function for the button
 	public void calculate(ActionEvent event) {
-		// deletes previous data for the chart in case there was some
-		chart.getData().removeAll(chart.getData());
-		
-		// here you get input, checks whether it is an integer, then sets
+		int year=10;
+
 		// IntialPopulationSizes
-		if ((cattleInput.getText() != null && !cattleInput.getText().isEmpty())) {
-			try {
-				if (Integer.parseInt(cattleInput.getText()) > 0 && Integer.parseInt(cattleInput.getText()) < 100) {
-					Cattle.setInitialPopulationSize(Integer.parseInt(cattleInput.getText()));
-				}
-			} catch (NumberFormatException e) {
-				JOptionPane.showMessageDialog(null, "You need to enter a number between 0 and 100");
-			}
+		if(checkInput(cattleInput,0,100)) {
+			Cattle.setInitialPopulationSize(Integer.parseInt(cattleInput.getText()));
 		}
-		if ((horseInput.getText() != null && !horseInput.getText().isEmpty())) {
-			try {
-				if (Integer.parseInt(horseInput.getText()) > 0 && Integer.parseInt(horseInput.getText()) < 100) {
-					Horse.setInitialPopulationSize(Integer.parseInt(horseInput.getText()));
-				}
-			} catch (NumberFormatException e) {
-				JOptionPane.showMessageDialog(null, "You need to enter a number between 0 and 100");
-			}
+		if(checkInput(horseInput,0,100)) {
+			Horse.setInitialPopulationSize(Integer.parseInt(horseInput.getText()));
 		}
-		if ((deerInput.getText() != null && !deerInput.getText().isEmpty())) {
-			try {
-				if (Integer.parseInt(deerInput.getText()) > 0 && Integer.parseInt(deerInput.getText()) < 100) {
-					Deer.setInitialPopulationSize(Integer.parseInt(deerInput.getText()));
-				}
-			} catch (NumberFormatException e) {
-				JOptionPane.showMessageDialog(null, "You need to enter a number between 0 and 100");
-			}
+		if(checkInput(deerInput,0,100)) {
+			Deer.setInitialPopulationSize(Integer.parseInt(deerInput.getText()));
 		}
-		if ((wolfInput.getText() != null && !wolfInput.getText().isEmpty())) {
-			try {
-				if (Integer.parseInt(wolfInput.getText()) > 0 && Integer.parseInt(wolfInput.getText()) < 100) {
-					Wolve.setPopulationSize(Integer.parseInt(wolfInput.getText()));
-				}
-			} catch (NumberFormatException e) {
-				JOptionPane.showMessageDialog(null, "You need to enter a number between 0 and 100");
-			}
+		if(checkInput(wolfInput,0,100)) {
+			Wolve.setPopulationSize(Integer.parseInt(wolfInput.getText()));
 		}
-		if ((yearsInput.getText() != null && !yearsInput.getText().isEmpty())) {
-			try {
-				if (Integer.parseInt(yearsInput.getText()) > 0 && Integer.parseInt(yearsInput.getText()) < 100) {
-					// don't know where to put this now(Integer.parseInt(yearsInput.getText()));
-				}
-			} catch (NumberFormatException e) {
-				JOptionPane.showMessageDialog(null, "You need to enter a number between 0 and 100");
-			}
+		if(checkInput(yearsInput,0,100)) {
+			year=(Integer.parseInt(yearsInput.getText()));
 		}
-
-
-
-		//table
-		OutputPredationModelPreyGrowth a = new OutputPredationModelPreyGrowth();
-	 	int i = 0;
-//	    TableResult a1 =  new TableResult();
-	   	
-	 	//creates series
-	    XYChart.Series<Number,Number> cattleSeries=new XYChart.Series<Number,Number>();
-	    cattleSeries.setName("Cattle");
-	    XYChart.Series<Number,Number> deerSeries=new XYChart.Series<Number,Number>();
-	    deerSeries.setName("Deer");
-	    XYChart.Series<Number,Number> wolfSeries=new XYChart.Series<Number,Number>();
-	    wolfSeries.setName("Wolves");
-	    XYChart.Series<Number,Number> horseSeries=new XYChart.Series<Number,Number>();
-	    horseSeries.setName("Horses");
-	    //loop to add data
-	    while ( 10>i) {
-		 	TableResult test = new TableResult();
-			a.calculateObservableListWithCattleResults();
-			a.getOutputListCattle();
-			a.calculateObservableListWithDeerResults();
-			a.getOutputListDeer();
-			a.calculateObservableListWithHorseResults();
-			a.getOutputListHorse();
-			a.calculateObservableListWithWolveResults();
-			a.getOutputListWolve();
-	    	test.setYear(i);
-	    	test.setCattle((a.getOutputListCattle().get(i)));
-	    	test.setDeer((a.getOutputListDeer().get(i)));
-	    	test.setHorse((a.getOutputListHorse().get(i)));
-	    	test.setWolve((a.getOutputListWolve().get(i)));
-	    	System.out.println(test.toString());
-	    	tableView.getItems().add(test);
-	    	
-	    	//populates chart series
-	    	//cattleSeries.getData().add(new Data<Number, Number> (i,a.getOutputListCattle().get(i)));
-	    	//deerSeries.getData().add(new Data<Number, Number> (i,a.getOutputListDeer().get(i)));
-	    	//wolfSeries.getData().add(new Data<Number, Number> (i,a.getOutputListWolve().get(i)));
-	    	//horseSeries.getData().add(new Data<Number, Number> (i,a.getOutputListHorse().get(i)));
-	    	
-	    	
-	    	i++;	
-		}
-	    
-	    
-	    //populates chart series
-	    for(int c =0; c<a.getOutputPredationModel().size() ;c++) {
-	    	cattleSeries.getData().add(new Data<Number, Number> (c,a.getOutputListCattle().get(c)));
-	    	deerSeries.getData().add(new Data<Number, Number> (c,a.getOutputListDeer().get(c)));
-	    	wolfSeries.getData().add(new Data<Number, Number> (c,a.getOutputListWolve().get(c)));
-	    	horseSeries.getData().add(new Data<Number, Number> (c,a.getOutputListHorse().get(c)));
-	    	c++;}
-	    
-	    //adds series into the graph
-	    chart.getData().add(cattleSeries);
-	    chart.getData().add(deerSeries);
-	    chart.getData().add(horseSeries);
-	    chart.getData().add(wolfSeries);
-	    
+		OutputPredationModelPreyGrowth a = new OutputPredationModelPreyGrowth();			   	
+	 	
+	 	calculateData(a,year);
+	    fillTable(a);
+	    fillChart(a);
 	    // empties text fields
 		cattleInput.clear();
 		wolfInput.clear();
@@ -193,17 +107,74 @@ public class Controller implements Initializable {
 		deerColumn.setCellValueFactory(new PropertyValueFactory<>("deer"));
 		horseColumn.setCellValueFactory(new PropertyValueFactory<>("horse"));
 		wolfColumn.setCellValueFactory(new PropertyValueFactory<>("wolve"));
-		
-		
-		
 		//load data
 		//tableView.setItems(observableList);
+		}
+	
+	
+	//clears the chart, creates XYSeries, fills the series,draws it
+	public void fillChart(OutputPredationModelPreyGrowth output) {
+		chart.getData().removeAll(chart.getData());
 		
+		XYChart.Series<Number,Number> cattleSeries=new XYChart.Series<Number,Number>();
+	    cattleSeries.setName("Cattle");
+	    XYChart.Series<Number,Number> deerSeries=new XYChart.Series<Number,Number>();
+	    deerSeries.setName("Deer");
+	    XYChart.Series<Number,Number> wolfSeries=new XYChart.Series<Number,Number>();
+	    wolfSeries.setName("Wolves");
+	    XYChart.Series<Number,Number> horseSeries=new XYChart.Series<Number,Number>();
+	    horseSeries.setName("Horses");
 		
+		for(int c =0; c<output.getOutputPredationModel().size() ;c++) {
+	    	cattleSeries.getData().add(new Data<Number, Number> (c,output.getOutputListCattle().get(c)));
+	    	deerSeries.getData().add(new Data<Number, Number> (c,output.getOutputListDeer().get(c)));
+	    	wolfSeries.getData().add(new Data<Number, Number> (c,output.getOutputListWolve().get(c)));
+	    	horseSeries.getData().add(new Data<Number, Number> (c,output.getOutputListHorse().get(c)));
+	    	c++;}
 		
-
+		chart.getData().addAll(cattleSeries,deerSeries,horseSeries,wolfSeries);
+		}
+	
+	//checks whether the input is proper input
+	public boolean checkInput(TextField input,int min, int max) {
+		if ((input.getText() != null && !input.getText().isEmpty())) {
+			try {
+				if (Integer.parseInt(input.getText()) > min && Integer.parseInt(input.getText()) < max) {
+					return true;
+				}
+			} catch (NumberFormatException e) {
+				JOptionPane.showMessageDialog(null, "You need to enter a number between "+min+" and "+max+"100");
+				
+			}}
+		return false;
 	}
 	
-	
-	
+	//fills in the table
+	public void fillTable(OutputPredationModelPreyGrowth output) {
+		tableView.getItems().clear();
+		int i=0;
+		while ( output.getOutputPredationModel().size()>=i) {
+		 	TableResult test = new TableResult(i,output.getOutputListCattle().get(i),output.getOutputListDeer().get(i),output.getOutputListHorse().get(i),output.getOutputListWolve().get(i));
+			System.out.println(test.toString());
+	    	tableView.getItems().add(test);
+	    	i++;	
+		}}
+	//calculates Data
+	public void calculateData(OutputPredationModelPreyGrowth output,int year) {
+		output.getOutputListCattle().clear();
+		output.getOutputListDeer().clear();
+		output.getOutputListHorse().clear();
+		output.getOutputListWolve().clear();
+		int i=0;
+	    while ( year>=i) {
+	    	output.calculateObservableListWithCattleResults();
+	    	output.getOutputListCattle();
+	    	output.calculateObservableListWithDeerResults();
+	    	output.getOutputListDeer();
+	    	output.calculateObservableListWithHorseResults();
+	    	output.getOutputListHorse();
+	    	output.calculateObservableListWithWolveResults();
+	    	output.getOutputListWolve();
+	    	i++;	
+	    }}
 }
