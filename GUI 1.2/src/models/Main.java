@@ -22,7 +22,7 @@ public class Main {
 		a.calculateObservableListWithWolveResults();
 		System.out.println(a.getOutputListWolve());
 		mergedPredationModelPreyGrowthOutput b = new mergedPredationModelPreyGrowthOutput(a);
-		b.getCombinedLists().ge
+		//b.getCombinedLists().ge
 	}
 
 }

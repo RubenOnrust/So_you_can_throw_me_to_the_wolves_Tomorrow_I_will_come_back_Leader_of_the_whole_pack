@@ -1,12 +1,9 @@
 package application;
 
 import java.net.URL;
-import java.util.Iterator;
 import java.util.ResourceBundle;
-
 import javax.swing.JOptionPane;
 
-import datamodel.FoodChain;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.collections.FXCollections;
@@ -17,24 +14,17 @@ import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.chart.XYChart.Data;
 import javafx.scene.control.Button;
-import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.control.TreeItem;
-import javafx.scene.control.TreeTableColumn;
-import javafx.scene.control.TreeTableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.control.cell.TreeItemPropertyValueFactory;
 import livingOrganisms.Cattle;
 import livingOrganisms.Deer;
 import livingOrganisms.Horse;
 import livingOrganisms.Wolve;
 import models.OutputPredationModelPreyGrowth;
-import models.PredationModelPreyGrowth;
-
 public class Controller implements Initializable {
-	// bliepbuyoyoyoo
+
 	// scene items
 	@FXML
 	private Button buttonCalculate;
@@ -168,27 +158,23 @@ public class Controller implements Initializable {
 	    	
 	    	i++;	
 		}
-	    //??
 	    
 	    
+	    //populates chart series
 	    for(int c =0; c<a.getOutputPredationModel().size() ;c++) {
 	    	cattleSeries.getData().add(new Data<Number, Number> (c,a.getOutputListCattle().get(c)));
 	    	deerSeries.getData().add(new Data<Number, Number> (c,a.getOutputListDeer().get(c)));
 	    	wolfSeries.getData().add(new Data<Number, Number> (c,a.getOutputListWolve().get(c)));
 	    	horseSeries.getData().add(new Data<Number, Number> (c,a.getOutputListHorse().get(c)));
-	    	c++;
-	    	
-	    }
+	    	c++;}
+	    
 	    //adds series into the graph
 	    chart.getData().add(cattleSeries);
 	    chart.getData().add(deerSeries);
 	    chart.getData().add(horseSeries);
 	    chart.getData().add(wolfSeries);
-
-		
 	    
-
-		// empties text fields
+	    // empties text fields
 		cattleInput.clear();
 		wolfInput.clear();
 		deerInput.clear();
@@ -218,53 +204,6 @@ public class Controller implements Initializable {
 
 	}
 	
-	 public void addData() {
-			OutputPredationModelPreyGrowth a = new OutputPredationModelPreyGrowth();
-		 	int i = 0;
-//		    TableResult a1 =  new TableResult();
-		    Cattle.setInitialPopulationSize(Integer.parseInt(cattleInput.getText()));
-		    Deer.setInitialPopulationSize(Integer.parseInt(deerInput.getText()));
-		    Horse.setInitialPopulationSize(Integer.parseInt(horseInput.getText()));
-		    Wolve.setPopulationSize(Integer.parseInt(wolfInput.getText()));
-		 
-		    while ( 10>i) {
-			 	TableResult test = new TableResult();
-				a.calculateObservableListWithCattleResults();
-				a.getOutputListCattle();
-				a.calculateObservableListWithDeerResults();
-				a.getOutputListDeer();
-				a.calculateObservableListWithHorseResults();
-				a.getOutputListHorse();
-				a.calculateObservableListWithWolveResults();
-				a.getOutputListWolve();
-		    	test.setYear(i);
-		    	test.setCattle((a.getOutputListCattle().get(i)));
-		    	test.setDeer((a.getOutputListDeer().get(i)));
-		    	test.setHorse((a.getOutputListHorse().get(i)));
-		    	test.setWolve((a.getOutputListWolve().get(i)));
-		    	System.out.println(test.toString());
-		    	tableView.getItems().add(test);
-		    	
-		 
-		    	
-		    	
-		    	i++;	
-			}
-
-		    
-		    cattleInput.clear();
-		    deerInput.clear();
-		    horseInput.clear();
-		    wolfInput.clear();
-		    yearsInput.clear();
-		    
-		    
-		   
-		   
-		   
-	   }
-
-	   
 	
 	
 }
