@@ -65,8 +65,8 @@ public class Controller implements Initializable {
 
 	//function for the button
 	public void calculate(ActionEvent event) {
-		int year=10;
-
+		//int year = Integer.parseInt(yearsInput.getText());
+		int year = 10;
 		// IntialPopulationSizes
 		if(checkInput(cattleInput,0,100)) {
 			Cattle.setInitialPopulationSize(Integer.parseInt(cattleInput.getText()));

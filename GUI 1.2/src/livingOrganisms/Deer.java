@@ -5,7 +5,7 @@ import javafx.collections.ObservableList;
 public class Deer {
 	public static int initialPopulationSize = 1000;
 	public static int r;
-	public static double lambda = 0.9;
+	public static double lambda = 1.35;
 	public static ObservableList<Integer> caclculatedPopulationSizes;
 
 	public Deer() {

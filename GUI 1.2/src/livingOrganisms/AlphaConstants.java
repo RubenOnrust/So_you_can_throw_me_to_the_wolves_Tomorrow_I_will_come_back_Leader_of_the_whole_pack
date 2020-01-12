@@ -1,9 +1,9 @@
 package livingOrganisms;
 
 public class AlphaConstants {
-	private static double alphaCattle = 6;
-	private static double alphaHorse = 4;
-	private static double alphaDeer = 7;
+	private static double alphaCattle = 0.023;
+	private static double alphaHorse = 0.015;
+	private static double alphaDeer = 0.15;
 
 	public static double getAlphaCattle() {
 		return alphaCattle;

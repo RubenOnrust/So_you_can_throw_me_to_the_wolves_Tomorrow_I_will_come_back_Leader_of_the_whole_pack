@@ -2,9 +2,9 @@ package livingOrganisms;
 
 public class Wolve {
 	private static int populationSize = 2;
-	private static double hCattle = 0.42;
-	private static double hHorse = 0.58;
-	private static double hDeer = 0.33;
+	private static double hCattle = 6;
+	private static double hHorse = 1.2;
+	private static double hDeer = 2.9;
 	private static double lambda = 1.05;
 
 	public Wolve() {
