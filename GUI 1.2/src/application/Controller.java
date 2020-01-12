@@ -68,19 +68,19 @@ public class Controller implements Initializable {
 		//int year = Integer.parseInt(yearsInput.getText());
 		int year = 10;
 		// IntialPopulationSizes
-		if(checkInput(cattleInput,0,100)) {
+		if(checkInput(cattleInput)) {
 			Cattle.setInitialPopulationSize(Integer.parseInt(cattleInput.getText()));
 		}
-		if(checkInput(horseInput,0,100)) {
+		if(checkInput(horseInput)) {
 			Horse.setInitialPopulationSize(Integer.parseInt(horseInput.getText()));
 		}
-		if(checkInput(deerInput,0,100)) {
+		if(checkInput(deerInput)) {
 			Deer.setInitialPopulationSize(Integer.parseInt(deerInput.getText()));
 		}
-		if(checkInput(wolfInput,0,100)) {
+		if(checkInput(wolfInput)) {
 			Wolve.setPopulationSize(Integer.parseInt(wolfInput.getText()));
 		}
-		if(checkInput(yearsInput,0,100)) {
+		if(checkInput(yearsInput)) {
 			year=(Integer.parseInt(yearsInput.getText()));
 		}
 		OutputPredationModelPreyGrowth a = new OutputPredationModelPreyGrowth();			   	
@@ -136,14 +136,14 @@ public class Controller implements Initializable {
 		}
 	
 	//checks whether the input is proper input
-	public boolean checkInput(TextField input,int min, int max) {
+	public boolean checkInput(TextField input) {
 		if ((input.getText() != null && !input.getText().isEmpty())) {
 			try {
-				if (Integer.parseInt(input.getText()) > min && Integer.parseInt(input.getText()) < max) {
+				if (Integer.parseInt(input.getText()) >=0) {
 					return true;
 				}
 			} catch (NumberFormatException e) {
-				JOptionPane.showMessageDialog(null, "You need to enter a number between "+min+" and "+max+"100");
+				JOptionPane.showMessageDialog(null, "You need to enter a number equal or bigger than 0.");
 				
 			}}
 		return false;
