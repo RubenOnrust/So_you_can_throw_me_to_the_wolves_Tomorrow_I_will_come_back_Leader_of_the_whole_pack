@@ -18,6 +18,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import livingOrganisms.AlphaConstants;
 import livingOrganisms.Cattle;
 import livingOrganisms.Deer;
 import livingOrganisms.Horse;
@@ -65,7 +66,6 @@ public class Controller implements Initializable {
 
 	//function for the button
 	public void calculate(ActionEvent event) {
-		//int year = Integer.parseInt(yearsInput.getText());
 		int year = 10;
 		// IntialPopulationSizes
 		if(checkInput(cattleInput)) {
@@ -81,7 +81,7 @@ public class Controller implements Initializable {
 			Wolve.setPopulationSize(Integer.parseInt(wolfInput.getText()));
 		}
 		if(checkInput(yearsInput)) {
-			year=(Integer.parseInt(yearsInput.getText()));
+			AlphaConstants.setYears(Integer.parseInt(yearsInput.getText())+1);
 		}
 		OutputPredationModelPreyGrowth a = new OutputPredationModelPreyGrowth();			   	
 	 	
@@ -124,8 +124,8 @@ public class Controller implements Initializable {
 	    wolfSeries.setName("Wolves");
 	    XYChart.Series<Number,Number> horseSeries=new XYChart.Series<Number,Number>();
 	    horseSeries.setName("Horses");
-		
-		for(int c =0; c<output.getOutputPredationModel().size() ;c++) {
+		int c=0;
+	    while ( (output.getOutputPredationModel().size())>c) {
 	    	cattleSeries.getData().add(new Data<Number, Number> (c,output.getOutputListCattle().get(c)));
 	    	deerSeries.getData().add(new Data<Number, Number> (c,output.getOutputListDeer().get(c)));
 	    	wolfSeries.getData().add(new Data<Number, Number> (c,output.getOutputListWolve().get(c)));
@@ -153,7 +153,7 @@ public class Controller implements Initializable {
 	public void fillTable(OutputPredationModelPreyGrowth output) {
 		tableView.getItems().clear();
 		int i=0;
-		while ( output.getOutputPredationModel().size()>=i) {
+		while ( (output.getOutputPredationModel().size())>i) {
 		 	TableResult test = new TableResult(i,output.getOutputListCattle().get(i),output.getOutputListDeer().get(i),output.getOutputListHorse().get(i),output.getOutputListWolve().get(i));
 			System.out.println(test.toString());
 	    	tableView.getItems().add(test);
@@ -165,16 +165,13 @@ public class Controller implements Initializable {
 		output.getOutputListDeer().clear();
 		output.getOutputListHorse().clear();
 		output.getOutputListWolve().clear();
-		int i=0;
-	    while ( year>=i) {
-	    	output.calculateObservableListWithCattleResults();
-	    	output.getOutputListCattle();
-	    	output.calculateObservableListWithDeerResults();
-	    	output.getOutputListDeer();
-	    	output.calculateObservableListWithHorseResults();
-	    	output.getOutputListHorse();
-	    	output.calculateObservableListWithWolveResults();
-	    	output.getOutputListWolve();
-	    	i++;	
-	    }}
+	    output.calculateObservableListWithCattleResults();
+	   	output.getOutputListCattle();
+	   	output.calculateObservableListWithDeerResults();
+	   	output.getOutputListDeer();
+	   	output.calculateObservableListWithHorseResults();
+    	output.getOutputListHorse();
+    	output.calculateObservableListWithWolveResults();
+	   	output.getOutputListWolve();	
+	    }
 }

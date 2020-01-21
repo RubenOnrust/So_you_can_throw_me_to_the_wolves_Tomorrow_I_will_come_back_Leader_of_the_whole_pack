@@ -6,7 +6,6 @@ public class Deer {
 	public static int initialPopulationSize = 1000;
 	public static int r;
 	public static double lambda = 1.35;
-	public static ObservableList<Integer> caclculatedPopulationSizes;
 
 	public Deer() {
 		// TODO Auto-generated constructor stub
@@ -35,13 +34,4 @@ public class Deer {
 	public static void setR(int r) {
 		Deer.r = r;
 	}
-
-	public static ObservableList<Integer> getCaclculatedPopulationSizes() {
-		return caclculatedPopulationSizes;
-	}
-
-	public static void setCaclculatedPopulationSizes(ObservableList<Integer> caclculatedPopulationSizes) {
-		Deer.caclculatedPopulationSizes = caclculatedPopulationSizes;
-	}
-
 }

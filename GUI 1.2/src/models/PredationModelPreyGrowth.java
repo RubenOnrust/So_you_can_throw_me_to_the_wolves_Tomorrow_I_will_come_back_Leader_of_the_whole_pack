@@ -89,7 +89,13 @@ public class PredationModelPreyGrowth extends Model {
 		victemPopulationGrowth = victemPopulationGrowth / (V + D);
 		victemPopulationGrowth = victemPopulationGrowth * P;
 		victemPopulationGrowth = (r * V) - victemPopulationGrowth;
-		this.populationRise = (int) Math.round(victemPopulationGrowth);
+		if(this.victem>0) {
+			this.populationRise = (int) Math.round(victemPopulationGrowth);
 	}
+		else{
+			this.victem = 0;
+			
+		}
+	}	
 
 }

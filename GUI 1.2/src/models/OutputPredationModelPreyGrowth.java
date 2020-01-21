@@ -5,6 +5,7 @@ import java.util.List;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import livingOrganisms.AlphaConstants;
 import livingOrganisms.Cattle;
 import livingOrganisms.Deer;
 import livingOrganisms.Horse;
@@ -74,7 +75,7 @@ public class OutputPredationModelPreyGrowth {
 		PredationModelPreyGrowth model = new PredationModelPreyGrowth(v, p, r, k, d);
 		model.calculatingFormula();
 		ArrayList<Integer> listPopulationSizes = new ArrayList<Integer>();
-		while (i < 10) {
+		while (i < AlphaConstants.getYears()) {
 			i++;
 			listPopulationSizes.add(model.getVictem());
 			model.setVictem(model.getVictem() + model.getPopulationRise());
@@ -104,7 +105,7 @@ public class OutputPredationModelPreyGrowth {
 		PredationModelPreyGrowth model = new PredationModelPreyGrowth(v, p, r, k, d);
 		model.calculatingFormula();
 		ArrayList<Integer> listPopulationSizes = new ArrayList<Integer>();
-		while (i < 10) {
+		while (i < AlphaConstants.getYears()) {
 			i++;
 			listPopulationSizes.add(model.getVictem());
 			model.setVictem(model.getVictem() + model.getPopulationRise());
@@ -134,7 +135,7 @@ public class OutputPredationModelPreyGrowth {
 		PredationModelPreyGrowth model = new PredationModelPreyGrowth(v, p, r, k, d);
 		model.calculatingFormula();
 		ArrayList<Integer> listPopulationSizes = new ArrayList<Integer>();
-		while (i < 10) {
+		while (i < AlphaConstants.getYears()) {
 			i++;
 			listPopulationSizes.add(model.getVictem());
 			model.setVictem(model.getVictem() + model.getPopulationRise());
@@ -154,7 +155,7 @@ public class OutputPredationModelPreyGrowth {
 	public void calculateObservableListWithWolveResults() {
 		int i = 0;
 		double populationSize = Wolve.getPopulationSize();
-		while (i < 10) {
+		while (i < AlphaConstants.getYears()) {
 			i++;
 			IntrinsicRateOfIncrease r = new IntrinsicRateOfIncrease(0.1);
 			double populationRise = populationSize * r.getR();
