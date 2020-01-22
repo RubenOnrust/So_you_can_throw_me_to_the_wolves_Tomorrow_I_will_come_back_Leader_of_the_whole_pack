@@ -67,7 +67,7 @@ public class Controller implements Initializable {
 	private TextField wolfInput;
 	@FXML
 	private TextField yearsInput;
-	
+	//delete table rows
 	@FXML
     private MenuItem delete;
 
