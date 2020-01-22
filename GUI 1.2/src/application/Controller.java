@@ -1,8 +1,13 @@
 package application;
 
+
 import java.net.URL;
+
 import java.util.ResourceBundle;
 import javax.swing.JOptionPane;
+
+import com.sun.glass.ui.Menu;
+import com.sun.glass.ui.MenuItem;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -62,6 +67,9 @@ public class Controller implements Initializable {
 	private TextField wolfInput;
 	@FXML
 	private TextField yearsInput;
+	
+	@FXML
+    private MenuItem delete;
 
 	//function for the button
 	public void calculate(ActionEvent event) {
@@ -168,4 +176,15 @@ public class Controller implements Initializable {
     	output.calculateObservableListWithWolveResults();
 	   	output.getOutputListWolve();	
 	    }
+	
+	
+	public void deleteRow() {
+		   
+		   
+		   tableView.getItems().removeAll(tableView.getSelectionModel().getSelectedItem());
+		   
+		   
+		  
+		   }
+	
 }
