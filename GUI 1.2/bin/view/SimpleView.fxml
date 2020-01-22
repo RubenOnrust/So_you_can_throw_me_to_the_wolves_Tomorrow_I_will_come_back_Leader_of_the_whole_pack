@@ -16,7 +16,7 @@
 
 <AnchorPane prefHeight="463.0" prefWidth="816.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller">
    <children>
-      <SplitPane dividerPositions="0.5" layoutY="33.0" prefHeight="436.0" prefWidth="546.0" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <SplitPane dividerPositions="0.5" layoutY="33.0" prefHeight="582.0" prefWidth="839.0" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
         <items>
           <AnchorPane maxWidth="200.0" minHeight="0.0" minWidth="0.0" prefHeight="434.0" prefWidth="200.0">
                <children>
@@ -48,7 +48,7 @@
                         </TableView>
                         <AreaChart fx:id="chart" layoutX="27.0" layoutY="14.0" title="Population sizes" AnchorPane.topAnchor="14.0">
                           <xAxis>
-                            <NumberAxis label="Year" side="BOTTOM" fx:id="xAxis" />
+                            <NumberAxis label="Year" side="BOTTOM" tickUnit="1" fx:id="xAxis" />
                           </xAxis>
                           <yAxis>
                             <NumberAxis fx:id="yAxis" label="Population sizes" side="LEFT" tickLabelRotation="-12.5" />
