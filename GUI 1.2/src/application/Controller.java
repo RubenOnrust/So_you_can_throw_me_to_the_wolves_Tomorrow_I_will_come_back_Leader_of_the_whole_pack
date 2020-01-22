@@ -67,7 +67,7 @@ public class Controller implements Initializable {
 	private TextField wolfInput;
 	@FXML
 	private TextField yearsInput;
-	//delete table rows
+	//delete table rows 
 	@FXML
     private MenuItem delete;
 
@@ -177,7 +177,7 @@ public class Controller implements Initializable {
 	   	output.getOutputListWolve();	
 	    }
 	
-	
+	//the method called by the delete menuItem
 	public void deleteRow() {
 		   
 		   
