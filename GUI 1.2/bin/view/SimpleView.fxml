@@ -43,7 +43,7 @@
                             <TableColumn fx:id="cattleColumn" prefWidth="100.0" text="Cattle" />
                               <TableColumn fx:id="deerColumn" prefWidth="100.0" text="Deer" />
                               <TableColumn fx:id="horseColumn" prefWidth="100.0" text="Horses" />
-                              <TableColumn fx:id="wolfColumn" prefWidth="100.0" text="Wolfs" />
+                              <TableColumn fx:id="wolfColumn" prefWidth="100.0" text="Wolves" />
                           </columns>
                         </TableView>
                         <AreaChart fx:id="chart" layoutX="27.0" layoutY="14.0" title="Population sizes" AnchorPane.topAnchor="14.0">

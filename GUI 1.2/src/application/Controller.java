@@ -26,7 +26,6 @@ import livingOrganisms.Wolve;
 import models.OutputPredationModelPreyGrowth;
 public class Controller implements Initializable {
 	// scene items
-	//hh
 	@FXML
 	private Button buttonCalculate;
 	@FXML
@@ -66,7 +65,6 @@ public class Controller implements Initializable {
 
 	//function for the button
 	public void calculate(ActionEvent event) {
-		int year = 10;
 		// IntialPopulationSizes
 		if(checkInput(cattleInput)) {
 			Cattle.setInitialPopulationSize(Integer.parseInt(cattleInput.getText()));
@@ -85,7 +83,7 @@ public class Controller implements Initializable {
 		}
 		OutputPredationModelPreyGrowth a = new OutputPredationModelPreyGrowth();			   	
 	 	
-	 	calculateData(a,year);
+	 	calculateData(a);
 	    fillTable(a);
 	    fillChart(a);
 	    // empties text fields
@@ -100,15 +98,11 @@ public class Controller implements Initializable {
 	ObservableList<TableResult> observableList= FXCollections.observableArrayList();
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		
 		yearColumn.setCellValueFactory(new PropertyValueFactory<>("year"));
-		
 		cattleColumn.setCellValueFactory(new PropertyValueFactory<>("cattle"));
 		deerColumn.setCellValueFactory(new PropertyValueFactory<>("deer"));
 		horseColumn.setCellValueFactory(new PropertyValueFactory<>("horse"));
 		wolfColumn.setCellValueFactory(new PropertyValueFactory<>("wolve"));
-		//load data
-		//tableView.setItems(observableList);
 		}
 	
 	
@@ -160,7 +154,7 @@ public class Controller implements Initializable {
 	    	i++;	
 		}}
 	//calculates Data
-	public void calculateData(OutputPredationModelPreyGrowth output,int year) {
+	public void calculateData(OutputPredationModelPreyGrowth output) {
 		output.getOutputListCattle().clear();
 		output.getOutputListDeer().clear();
 		output.getOutputListHorse().clear();

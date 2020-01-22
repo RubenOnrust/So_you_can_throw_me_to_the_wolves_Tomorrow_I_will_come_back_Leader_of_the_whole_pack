@@ -10,7 +10,7 @@ public class PredationModelPreyGrowth extends Model {
 	private ConstantD constantD;
 	private int populationRise;
 
-	// The constructer to make an object what is going to be used to calculate
+	// The constructor to make an object what is going to be used to calculate
 	// population growth
 	public PredationModelPreyGrowth(int victem, int predator, IntrinsicRateOfIncrease growthRateVictems,
 			ConstantK constantK, ConstantD constantD) {

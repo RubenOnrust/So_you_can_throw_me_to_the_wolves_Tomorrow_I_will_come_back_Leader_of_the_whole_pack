@@ -80,10 +80,6 @@ public class OutputPredationModelPreyGrowth {
 			listPopulationSizes.add(model.getVictem());
 			model.setVictem(model.getVictem() + model.getPopulationRise());
 			model.calculatingFormula();
-//			if(i == 10) {
-//				System.out.println(listPopulationSizes);
-//				
-//			}
 		}
 		for (int j = 0; j < listPopulationSizes.size(); j++) {
 			this.outputListCattle.add(listPopulationSizes.get(j));
@@ -110,10 +106,6 @@ public class OutputPredationModelPreyGrowth {
 			listPopulationSizes.add(model.getVictem());
 			model.setVictem(model.getVictem() + model.getPopulationRise());
 			model.calculatingFormula();
-//			if(i == 10) {
-//				System.out.println(listPopulationSizes);
-//				
-//			}
 		}
 		for (int j = 0; j < listPopulationSizes.size(); j++) {
 			this.outputListHorse.add(listPopulationSizes.get(j));
@@ -140,10 +132,6 @@ public class OutputPredationModelPreyGrowth {
 			listPopulationSizes.add(model.getVictem());
 			model.setVictem(model.getVictem() + model.getPopulationRise());
 			model.calculatingFormula();
-//			if(i == 10) {
-//				System.out.println(listPopulationSizes);
-//				
-//			}
 		}
 		for (int j = 0; j < listPopulationSizes.size(); j++) {
 			this.outputListDeer.add(listPopulationSizes.get(j));
