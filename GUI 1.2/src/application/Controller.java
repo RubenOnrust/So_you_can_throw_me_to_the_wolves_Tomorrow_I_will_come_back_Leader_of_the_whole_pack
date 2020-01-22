@@ -177,7 +177,7 @@ public class Controller implements Initializable {
 	   	output.getOutputListWolve();	
 	    }
 	
-	//the method called by the delete menuItem
+	//the method called by the delete menuItem...
 	public void deleteRow() {
 		   
 		   
